@@ -214,7 +214,7 @@ ul {
 .btn-secondary {
     background-image: linear-gradient(var(--clr-bg-card), var(--clr-bg-card)), linear-gradient(135deg, #cbd5e1, #94a3b8);
     color: #64748b;
-    box-shadow: 0 4px 15px rgba(215, 27, 27, 0.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .btn:hover {
