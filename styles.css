@@ -471,7 +471,7 @@ ul {
 .icon-wrap {
     margin-bottom: var(--space-4);
     display: inline-flex;
-    padding: 12px;
+    padding: 1px;
     background: var(--clr-bg-page);
     border-radius: var(--radius-sm);
 }
@@ -551,8 +551,8 @@ ul {
 .uni-logo {
     width: 64px;
     height: 64px;
-    background: #f1f5f9;
-    color: var(--clr-text-muted);
+    background: #e73b21;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
