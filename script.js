@@ -137,6 +137,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
+       CINEMATIC VIDEO SHOWCASE INTERACTION (SWAP)
+       ========================================================================== */
+    const showcaseContainer = document.querySelector('.video-showcase');
+    if (showcaseContainer) {
+        const showcaseItems = showcaseContainer.querySelectorAll('.showcase-item');
+        
+        showcaseItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const currentCenter = showcaseContainer.querySelector('.center');
+                
+                // Si el video clickeado ya está en el centro, lo ignoramos
+                if (item === currentCenter) return;
+
+                // Intercambio estructural usando DOM insertBefore para mantener coherencia en CSS Flexbox
+                // 1. Creamos un clon temporal para guardar la posición original
+                const tempPlaceholder = document.createElement('div');
+                showcaseContainer.insertBefore(tempPlaceholder, item);
+
+                // 2. Movemos el video clickeado a la posición central del DOM
+                showcaseContainer.insertBefore(item, currentCenter);
+                
+                // 3. Movemos el antiguo centro a la posición guardada lateral
+                showcaseContainer.insertBefore(currentCenter, tempPlaceholder);
+                
+                // 4. Borramos la huella temporal
+                showcaseContainer.removeChild(tempPlaceholder);
+
+                // Intercambio atómico de Clases CSS para aplicar Vibe Configurations (escalas web y sombras)
+                item.classList.remove('side');
+                item.classList.add('center');
+                
+                currentCenter.classList.remove('center');
+                currentCenter.classList.add('side');
+            });
+        });
+    }
+
+    /* ==========================================================================
        PARTICLE BACKGROUND SYSTEM
        ========================================================================== */
     function initParticles() {

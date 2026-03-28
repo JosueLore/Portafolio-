@@ -137,11 +137,29 @@ ul {
     align-items: flex-start;
 }
 
-@media (max-width: 768px) {
-
+@media (max-width: 900px) {
     .equal-grid,
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .video-showcase {
+        flex-direction: column;
+        gap: var(--space-6);
+    }
+
+    .showcase-item.side,
+    .showcase-item.center {
+        width: 100%;
+        max-width: 500px;
+        opacity: 1;
+        transform: scale(1);
+        filter: none;
+    }
+
+    .showcase-item.side:hover,
+    .showcase-item.center:hover {
+        transform: translateY(-4px);
     }
 }
 
@@ -358,6 +376,12 @@ ul {
     box-shadow: 0 0 15px rgba(255, 154, 0, 0.4);
 }
 
+.tag-animate:hover {
+    color: #ff26be; /* Adobe Animate bright magenta/purple */
+    border-color: #ff26be;
+    box-shadow: 0 0 15px rgba(255, 38, 190, 0.4);
+}
+
 /* Meta Labels */
 .meta-label {
     color: var(--clr-text-muted);
@@ -495,33 +519,100 @@ ul {
     flex-direction: column;
 }
 
-/* Glow effects for project cards on hover based on dominant image color */
-.project-card.glow-pink:hover {
+/* Featured Video Showcase (Cinematic Flow) */
+.featured-video-section {
+    padding-top: var(--space-2);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.video-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    max-width: 1300px;
+    padding: var(--space-6) var(--space-4);
+    position: relative;
+    perspective: 1000px; /* Base for depth scaling */
+}
+
+.showcase-item {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    cursor: pointer;
+    background: var(--clr-bg-page);
+}
+
+.showcase-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Default Showcase States */
+.showcase-item.side {
+    flex: 0 0 35%; /* Aumentado a 35% y con flex-shrink en 0 obliga a empujar la mitad del video hacia afuera de la pantalla al sumar > 100% junto al centro */
+    opacity: 0.35;
+    transform: scale(0.85);
+    z-index: 1;
+    filter: blur(2px) grayscale(50%); /* Profundidad extra sutil */
+}
+
+.showcase-item.center {
+    flex: 0 0 65%; /* Mucho más inmenso, acapara la atención (Center dominant width) */
+    opacity: 1;
+    transform: scale(1);
+    z-index: 5;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* Hover 3D Interactions */
+.showcase-item.side:hover {
+    opacity: 1;
+    transform: scale(0.95) translateZ(20px);
+    z-index: 10;
+    filter: blur(0px) grayscale(0%);
+}
+
+.showcase-item.center:hover {
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+/* Glow effects on hover based on dominant image color */
+.glow-white:hover {
+    border-color: #ffffff;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.35);
+}
+.glow-pink:hover {
     border-color: #793f66;
     box-shadow: 0 8px 32px rgba(255, 51, 187, 0.25);
 }
-
-.project-card.glow-purple:hover {
+.glow-purple:hover {
     border-color: #552d6e;
     box-shadow: 0 8px 32px rgba(157, 0, 255, 0.25);
 }
-
-.project-card.glow-cyan:hover {
+.glow-cyan:hover {
     border-color: #a2a2a2;
     box-shadow: 0 8px 32px rgba(188, 188, 188, 0.25);
 }
-
-.project-card.glow-yellow:hover {
+.glow-yellow:hover {
     border-color: #156124;
     box-shadow: 0 8px 32px rgba(0, 138, 7, 0.25);
 }
-
-.project-card.glow-blue:hover {
+.glow-blue:hover {
     border-color: #0088ff;
     box-shadow: 0 8px 32px rgba(0, 136, 255, 0.25);
 }
-
-.project-card.glow-magenta:hover {
+.glow-magenta:hover {
     border-color: #ff0055;
     box-shadow: 0 8px 32px rgba(255, 0, 85, 0.25);
 }
@@ -562,18 +653,50 @@ ul {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    object-position: center top;
     cursor: pointer;
     transition: transform 0.8s ease;
     border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+    transform-origin: center top;
 }
 
 .project-card img:hover {
     transform: scale(1.08);
 }
 
+/* Inner Carousel for dual media */
+.inner-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    height: 300px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+}
+.inner-carousel::-webkit-scrollbar {
+    display: none;
+}
+.inner-item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    cursor: ew-resize; /* Indica que la imagen se puede deslizar a los lados */
+}
+/* Disable hover scaling on inner scroll items to prevent overflow glitches */
+.inner-carousel:hover .inner-item {
+    transform: none;
+}
+
 .card-content {
     padding: 10%;
     background: rgba(0, 136, 255, 0.01);
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .card-content h4 {

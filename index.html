@@ -50,6 +50,22 @@
             </div>
         </section>
 
+        <!-- FEATURED VIDEO SECTION -->
+        <section id="featured-video" class="section featured-video-section animate-on-scroll">
+            <div class="video-showcase">
+                <div class="showcase-item side glow-blue">
+                    <video src="Media/Videos/Video_RenderGameboy.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <!-- Por ahora usaremos la ruta del video original dado que ffmpeg no está instalado, pero luego podemos cambiarlo -->
+                <div class="showcase-item center glow-white">
+                    <video src="Media/AnimacionDiamanteBlanco/White Diamont .mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="showcase-item side glow-pink">
+                    <video src="Media/Videos/Video_RenderSpinel.mp4" autoplay loop muted playsinline></video>
+                </div>
+            </div>
+        </section>
+
         <!-- ABOUT ME SECTION -->
         <section id="about" class="section about-section animate-on-scroll">
             <div class="section-header">
@@ -62,13 +78,14 @@
                 <p>Disfruto construyendo experiencias digitales completas: trabajando en equipo para dar vida a
                     videojuegos de estrategia y creando identidades visuales impactantes.</p>
                 <div class="tools-tags">
-                    <span class="tag tag-maya"><i class="fa-solid fa-cube"></i> Maya 3D</span>
-                    <span class="tag tag-arnold"><i class="fa-solid fa-film"></i> Arnold</span>
-                    <span class="tag tag-substance"><i class="fa-solid fa-paintbrush"></i> Substance Painter</span>
-                    <span class="tag tag-unreal"><i class="fa-solid fa-gamepad"></i> Unreal Engine 5</span>
-                    <span class="tag tag-godot"><i class="fa-solid fa-robot"></i> Godot</span>
-                    <span class="tag tag-photoshop"><i class="fa-solid fa-image"></i> Photoshop</span>
-                    <span class="tag tag-illustrator"><i class="fa-solid fa-bezier-curve"></i> Illustrator</span>
+                        <span class="tag tag-maya"><i class="fas fa-cube"></i> Autodesk Maya</span>
+                        <span class="tag tag-arnold"><i class="fas fa-camera"></i> Arnold Render</span>
+                        <span class="tag tag-substance"><i class="fas fa-paint-brush"></i> Substance 3D Painter</span>
+                        <span class="tag tag-unreal"><i class="fas fa-gamepad"></i> Unreal Engine 5</span>
+                        <span class="tag tag-godot"><i class="fas fa-cogs"></i> Godot 4</span>
+                        <span class="tag tag-photoshop"><i class="fas fa-image"></i> Adobe Photoshop</span>
+                        <span class="tag tag-illustrator"><i class="fas fa-pen-nib"></i> Adobe Illustrator</span>
+                        <span class="tag tag-animate"><i class="fas fa-film"></i> Adobe Animate</span>
                 </div>
             </div>
         </section>
@@ -82,12 +99,65 @@
             <!-- 3D Renders -->
             <h3 class="category-title">Renders 3D</h3>
             <div class="carousel">
+                <!-- NUEVO: Animación Diamante Blanco -->
+                <article class="card project-card carousel-item glow-white">
+                    <div class="inner-carousel">
+                        <video src="Media/AnimacionDiamanteBlanco/White Diamont .mp4" autoplay loop muted playsinline
+                            class="inner-item"></video>
+                        <img src="Media/AnimacionDiamanteBlanco/image.png" alt="Captura Diamante Blanco"
+                            class="inner-item" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-accent">Animación & Rigging</span>
+                        <h4>Diamante Blanco</h4>
+                        <p class="meta-label">Desliza en tu móvil o Trackpad sobre la imagen para ver la malla
+                            (Proceso).</p>
+                    </div>
+                </article>
                 <article class="card project-card carousel-item glow-pink">
-                    <img src="Media/Images/Spinel 3K p.png" alt="Spinel 3D Render" loading="lazy">
+                    <div class="inner-carousel">
+                        <img src="Media/Images/Spinel 3K p.png" alt="Spinel 3D Render" class="inner-item" loading="lazy">
+                        <img src="Media/Images/MayaSipinel.png" alt="Spinel Maya Rigging" class="inner-item" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-accent">Personaje Riggeado</span>
+                        <h4>Spinel (Steven Universe)</h4>
+                        <p class="meta-label">Desliza sobre la imagen para ver la topología.</p>
+                    </div>
+                </article>
+                
+                <!-- NUEVO: Mommy Long Legs -->
+                <article class="card project-card carousel-item glow-pink">
+                    <img src="Media/Images/Moomy Long Legs 5.png" alt="Mommy Long Legs 3D Render" loading="lazy">
                     <div class="card-content">
                         <span class="badge badge-accent">Modelado 3D</span>
-                        <h4>Spinel</h4>
-                        <p class="meta-label">Renderizado 3K</p>
+                        <h4>Mommy Long Legs</h4>
+                        <p class="meta-label">Recreación 3D del personaje.</p>
+                    </div>
+                </article>
+
+                <!-- NUEVO: Proyecto Gameboy Video -->
+                <article class="card project-card carousel-item glow-cyan">
+                    <div class="inner-carousel">
+                        <video src="Media/Videos/Video_RenderGameboy.mp4" autoplay loop muted playsinline class="inner-item"></video>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-accent">Modelado & Animación</span>
+                        <h4>Nintendo Gameboy</h4>
+                        <p class="meta-label">Producto 3D, Iluminación y Render.</p>
+                    </div>
+                </article>
+
+                <!-- NUEVO: Proyecto VNR (Doble Imagen) -->
+                <article class="card project-card carousel-item glow-cyan">
+                    <div class="inner-carousel">
+                        <img src="Media/Images/vnr.jpg" alt="VNR Render Frontal" class="inner-item" loading="lazy">
+                        <img src="Media/Images/vnr 2.jpg" alt="VNR Render Alternativo" class="inner-item" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge badge-accent">Modelado 3D</span>
+                        <h4>Modelo Veneer de Trolls</h4>
+                        <p class="meta-label">Desliza en la imagen para ver los distintos ángulos.</p>
                     </div>
                 </article>
                 <article class="card project-card carousel-item glow-purple">
