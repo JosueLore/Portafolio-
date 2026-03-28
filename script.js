@@ -136,4 +136,96 @@ document.addEventListener('DOMContentLoaded', () => {
         formStatus.style.fontWeight = '500';
     }
 
+    /* ==========================================================================
+       PARTICLE BACKGROUND SYSTEM
+       ========================================================================== */
+    function initParticles() {
+        const bgContainer = document.getElementById('particles-bg');
+        if (!bgContainer) return;
+
+        const particleCount = window.innerWidth < 768 ? 40 : 100; // Menos partículas en móvil
+        const particleSize = 4;
+        const particleColor = 'rgba(255, 255, 255, 0.2)'; 
+        const interactionRadius = 120;
+
+        let mouseX = -1000;
+        let mouseY = -1000;
+
+        // Rastreo global del ratón
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Loop de creación
+        for (let i = 0; i < particleCount; i++) {
+            createParticle(bgContainer, particleSize, particleColor, interactionRadius);
+        }
+
+        function createParticle(container, size, color, radius) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.backgroundColor = color;
+            particle.style.borderRadius = '50%';
+            particle.style.position = 'absolute';
+            particle.style.pointerEvents = 'none'; // Evitar bloqueo de UI
+            
+            // Posición inicial
+            particle.style.left = `${Math.random() * window.innerWidth}px`;
+            particle.style.top = `${Math.random() * window.innerHeight}px`;
+            particle.style.transition = 'transform 0.4s ease-out, left 1.5s linear, top 1.5s linear';
+
+            container.appendChild(particle);
+
+            animateParticle(particle);
+
+            // Interacción: Revisar distancia al ratón constantemente
+            setInterval(() => {
+                const rect = particle.getBoundingClientRect();
+                const pX = rect.left + size / 2;
+                const pY = rect.top + size / 2;
+                const distance = Math.sqrt(Math.pow(mouseX - pX, 2) + Math.pow(mouseY - pY, 2));
+
+                if (distance < radius) {
+                    const angle = Math.atan2(mouseY - pY, mouseX - pX);
+                    const force = (radius - distance) / radius;
+                    // Repeler (negativo)
+                    const moveX = -(Math.cos(angle) * force * radius);
+                    const moveY = -(Math.sin(angle) * force * radius);
+                    particle.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.5)`;
+                    particle.style.backgroundColor = 'rgba(57, 255, 20, 0.6)'; // Destello Neon Green
+                } else {
+                    particle.style.transform = 'translate(0, 0) scale(1)';
+                    particle.style.backgroundColor = color;
+                }
+            }, 50);
+        }
+
+        function animateParticle(particle) {
+            const pX = parseFloat(particle.style.left);
+            const pY = parseFloat(particle.style.top);
+            
+            const randomX = Math.random() * 40 - 20;
+            const randomY = Math.random() * 40 - 20;
+            
+            let newX = pX + randomX;
+            let newY = pY + randomY;
+
+            // Envolver a la pantalla
+            if(newX > window.innerWidth) newX = 0;
+            if(newX < 0) newX = window.innerWidth;
+            if(newY > window.innerHeight) newY = 0;
+            if(newY < 0) newY = window.innerHeight;
+
+            particle.style.left = `${newX}px`;
+            particle.style.top = `${newY}px`;
+
+            setTimeout(() => animateParticle(particle), 1500 + Math.random() * 1000);
+        }
+    }
+
+    initParticles();
+
 });

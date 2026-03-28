@@ -11,11 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
+    <!-- Partículas de fondo interactivo -->
+    <div id="particles-bg"></div>
     <header class="site-header">
         <nav class="main-nav">
             <a href="#" class="brand-name">PORTAFOLIO </a>
@@ -60,13 +62,13 @@
                 <p>Disfruto construyendo experiencias digitales completas: trabajando en equipo para dar vida a
                     videojuegos de estrategia y creando identidades visuales impactantes.</p>
                 <div class="tools-tags">
-                    <span class="tag">Maya 3D</span>
-                    <span class="tag">Arnold</span>
-                    <span class="tag">Substance Painter</span>
-                    <span class="tag">Unreal Engine 5</span>
-                    <span class="tag">Godot</span>
-                    <span class="tag">Photoshop</span>
-                    <span class="tag">Illustrator</span>
+                    <span class="tag tag-maya"><i class="fa-solid fa-cube"></i> Maya 3D</span>
+                    <span class="tag tag-arnold"><i class="fa-solid fa-film"></i> Arnold</span>
+                    <span class="tag tag-substance"><i class="fa-solid fa-paintbrush"></i> Substance Painter</span>
+                    <span class="tag tag-unreal"><i class="fa-solid fa-gamepad"></i> Unreal Engine 5</span>
+                    <span class="tag tag-godot"><i class="fa-solid fa-robot"></i> Godot</span>
+                    <span class="tag tag-photoshop"><i class="fa-solid fa-image"></i> Photoshop</span>
+                    <span class="tag tag-illustrator"><i class="fa-solid fa-bezier-curve"></i> Illustrator</span>
                 </div>
             </div>
         </section>
@@ -79,8 +81,8 @@
 
             <!-- 3D Renders -->
             <h3 class="category-title">Renders 3D</h3>
-            <div class="grid cards-grid">
-                <article class="card project-card">
+            <div class="carousel">
+                <article class="card project-card carousel-item glow-pink">
                     <img src="Media/Images/Spinel 3K p.png" alt="Spinel 3D Render" loading="lazy">
                     <div class="card-content">
                         <span class="badge badge-accent">Modelado 3D</span>
@@ -88,7 +90,7 @@
                         <p class="meta-label">Renderizado 3K</p>
                     </div>
                 </article>
-                <article class="card project-card">
+                <article class="card project-card carousel-item glow-purple">
                     <img src="Media/Images/cat nap 9.jpg" alt="Cat Nap Render" loading="lazy">
                     <div class="card-content">
                         <span class="badge badge-accent">Modelado 3D</span>
@@ -96,7 +98,7 @@
                         <p class="meta-label">Texturizado e iluminación</p>
                     </div>
                 </article>
-                <article class="card project-card">
+                <article class="card project-card carousel-item glow-cyan">
                     <img src="Media/Images/Render LANITA 3.jpg" alt="Lana Funko Render" loading="lazy">
                     <div class="card-content">
                         <span class="badge badge-accent">Modelado 3D</span>
@@ -104,7 +106,7 @@
                         <p class="meta-label">Pieza de colección virtual</p>
                     </div>
                 </article>
-                <article class="card project-card">
+                <article class="card project-card carousel-item glow-yellow">
                     <img src="Media/Images/Sinvi Pokemón.jpg" alt="Eva / Sinvi" loading="lazy">
                     <div class="card-content">
                         <span class="badge badge-accent">Modelado 3D</span>
@@ -117,7 +119,7 @@
             <!-- Development -->
             <h3 class="category-title">Desarrollo de Videojuegos</h3>
             <div class="grid dev-grid">
-                <article class="card project-card highlight-card">
+                <article class="card project-card highlight-card glow-blue">
                     <div class="card-content">
                         <span class="badge badge-secondary">Colaborativo</span>
                         <h4>Juego de Cartas y Estrategia</h4>
@@ -130,7 +132,7 @@
             <!-- Design -->
             <h3 class="category-title">Diseño Gráfico</h3>
             <div class="grid design-grid">
-                <article class="card project-card highlight-card">
+                <article class="card project-card highlight-card glow-magenta">
                     <div class="card-content">
                         <span class="badge badge-tertiary">Diseño Promocional</span>
                         <h4>Materiales de Eventos Estudiantiles</h4>
@@ -300,10 +302,26 @@
                         </li>
                     </ul>
                     <div class="social-links mt-4">
-                        <a href="https://josue_lorenzo.artstation.com/" target="_blank"
-                            class="btn btn-outline">ArtStation</a>
-                        <a href="https://www.linkedin.com/in/josue-lorenzo-ramirez/" target="_blank"
-                            class="btn btn-outline">LinkedIn</a>
+                        <a href="https://josue_lorenzo.artstation.com/" target="_blank" class="btn btn-outline"
+                            aria-label="ArtStation" title="ArtStation">
+                            <i class="fab fa-artstation"></i> ArtStation
+                        </a>
+                        <a href="https://www.linkedin.com/in/josue-lorenzo-ramirez/" target="_blank" class="social-icon"
+                            aria-label="LinkedIn" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/josuelorenzo_r" target="_blank" class="social-icon"
+                            aria-label="Instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/523481248260" target="_blank" class="social-icon" aria-label="WhatsApp"
+                            title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://youtube.com/@josue3dart?si=r6MpQATpiyv8weCz" target="_blank"
+                            class="social-icon" aria-label="YouTube" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
 
