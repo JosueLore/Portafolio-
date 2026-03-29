@@ -10,7 +10,7 @@
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -46,7 +46,8 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="Media/Profile photo/Foto de perfil 2.jpeg" alt="Foto de perfil de Josué Lorenzo" class="profile-img">
+                <img src="Media/Profile photo/Foto de perfil 2.jpeg" alt="Foto de perfil de Josué Lorenzo"
+                    class="profile-img">
             </div>
         </section>
 
@@ -98,97 +99,112 @@
             </div>
 
             <!-- 3D Renders -->
+            <!-- 3D Renders -->
             <h3 class="category-title">Renders 3D</h3>
-            <div class="carousel">
-                <!-- NUEVO: Animación Diamante Blanco -->
-                <article class="card project-card carousel-item glow-white">
-                    <div class="inner-carousel">
-                        <video src="Media/AnimacionDiamanteBlanco/White Diamont .mp4" autoplay loop muted playsinline
-                            class="inner-item"></video>
-                        <img src="Media/AnimacionDiamanteBlanco/image.png" alt="Captura Diamante Blanco"
-                            class="inner-item" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge badge-accent">Animación & Rigging</span>
-                        <h4>Diamante Blanco</h4>
-                        <p class="meta-label">Desliza en tu móvil o Trackpad sobre la imagen para ver la malla
-                            (Proceso).</p>
-                    </div>
-                </article>
-                <article class="card project-card carousel-item glow-pink">
-                    <div class="inner-carousel">
-                        <img src="Media/Images/Spinel 3K p.png" alt="Spinel 3D Render" class="inner-item"
-                            loading="lazy">
-                        <img src="Media/Images/MayaSipinel.png" alt="Spinel Maya Rigging" class="inner-item"
-                            loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge badge-accent">Personaje Riggeado</span>
-                        <h4>Spinel (Steven Universe)</h4>
-                        <p class="meta-label">Desliza sobre la imagen para ver la topología.</p>
-                    </div>
-                </article>
+            <div class="carousel-wrapper">
+                <button class="carousel-nav prev-btn" id="gallery-prev" aria-label="Ver anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="carousel-nav next-btn" id="gallery-next" aria-label="Ver siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
+                <div class="carousel" id="main-gallery">
+                    <!-- Proyecto VNR (Doble Imagen) -->
+                    <article class="card project-card carousel-item glow-cyan">
+                        <div class="inner-carousel">
+                            <img src="Media/Images/vnr.jpg" alt="VNR Render Frontal" class="inner-item" loading="lazy">
+                            <img src="Media/Images/vnr 2.jpg" alt="VNR Render Alternativo" class="inner-item"
+                                loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="badge badge-accent">Modelado 3D</span>
+                            <h4>Modelo Veneer de Trolls</h4>
+                            <p class="meta-label">Desliza en la imagen para ver los distintos ángulos.</p>
+                        </div>
+                    </article>
 
-                <!-- NUEVO: Mommy Long Legs -->
-                <article class="card project-card carousel-item glow-pink">
-                    <img src="Media/Images/Moomy Long Legs 5.png" alt="Mommy Long Legs 3D Render" loading="lazy">
-                    <div class="card-content">
-                        <span class="badge badge-accent">Modelado 3D</span>
-                        <h4>Mommy Long Legs</h4>
-                        <p class="meta-label">Recreación 3D del personaje.</p>
-                    </div>
-                </article>
+                    <!-- Cat Nap -->
+                    <article class="card project-card carousel-item glow-purple">
+                        <img src="Media/Images/cat nap 9.jpg" alt="Cat Nap Render" loading="lazy">
+                        <div class="card-content">
+                            <span class="badge badge-accent">Modelado 3D</span>
+                            <h4>Cat Nap</h4>
+                            <p class="meta-label">Texturizado e iluminación</p>
+                        </div>
+                    </article>
 
-                <!-- NUEVO: Proyecto Gameboy Video -->
-                <article class="card project-card carousel-item glow-cyan">
-                    <div class="inner-carousel">
-                        <video src="Media/Videos/Video_RenderGameboy.mp4" autoplay loop muted playsinline
-                            class="inner-item"></video>
-                    </div>
-                    <div class="card-content">
-                        <span class="badge badge-accent">Modelado & Animación</span>
-                        <h4>Nintendo Gameboy</h4>
-                        <p class="meta-label">Producto 3D, Iluminación y Render.</p>
-                    </div>
-                </article>
+                    <!-- Proyecto Gameboy Video -->
+                    <article class="card project-card carousel-item glow-cyan">
+                        <div class="inner-carousel">
+                            <video src="Media/Videos/Video_RenderGameboy.mp4" autoplay loop muted playsinline
+                                class="inner-item"></video>
+                        </div>
+                        <div class="card-content">
+                            <span class="badge badge-accent">Modelado & Animación</span>
+                            <h4>Nintendo Gameboy</h4>
+                            <p class="meta-label">Producto 3D, Iluminación y Render.</p>
+                        </div>
+                    </article>
 
-                <!-- NUEVO: Proyecto VNR (Doble Imagen) -->
-                <article class="card project-card carousel-item glow-cyan">
-                    <div class="inner-carousel">
-                        <img src="Media/Images/vnr.jpg" alt="VNR Render Frontal" class="inner-item" loading="lazy">
-                        <img src="Media/Images/vnr 2.jpg" alt="VNR Render Alternativo" class="inner-item"
-                            loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge badge-accent">Modelado 3D</span>
-                        <h4>Modelo Veneer de Trolls</h4>
-                        <p class="meta-label">Desliza en la imagen para ver los distintos ángulos.</p>
-                    </div>
-                </article>
-                <article class="card project-card carousel-item glow-purple">
-                    <img src="Media/Images/cat nap 9.jpg" alt="Cat Nap Render" loading="lazy">
-                    <div class="card-content">
-                        <span class="badge badge-accent">Modelado 3D</span>
-                        <h4>Cat Nap</h4>
-                        <p class="meta-label">Texturizado e iluminación</p>
-                    </div>
-                </article>
-                <article class="card project-card carousel-item glow-cyan">
-                    <img src="Media/Images/Render LANITA 3.jpg" alt="Lana Funko Render" loading="lazy">
-                    <div class="card-content">
-                        <span class="badge badge-accent">Modelado 3D</span>
-                        <h4>Lana Funko</h4>
-                        <p class="meta-label">Pieza de colección virtual</p>
-                    </div>
-                </article>
-                <article class="card project-card carousel-item glow-yellow">
-                    <img src="Media/Images/Sinvi Pokemón.jpg" alt="Eva / Sinvi" loading="lazy">
-                    <div class="card-content">
-                        <span class="badge badge-accent">Modelado 3D</span>
-                        <h4>Proyecto Sinvi</h4>
-                        <p class="meta-label">Renders en alta calidad</p>
-                    </div>
-                </article>
+                    <!-- Animación Diamante Blanco -->
+                    <article class="card project-card carousel-item glow-white">
+                        <div class="inner-carousel">
+                            <video src="Media/AnimacionDiamanteBlanco/White Diamont .mp4" autoplay loop muted
+                                playsinline class="inner-item"></video>
+                            <img src="Media/AnimacionDiamanteBlanco/image.png" alt="Captura Diamante Blanco"
+                                class="inner-item" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="badge badge-accent">Animación & Rigging</span>
+                            <h4>Diamante Blanco</h4>
+                            <p class="meta-label">Desliza en tu móvil o Trackpad sobre la imagen para ver la malla
+                                (Proceso).</p>
+                        </div>
+                    </article>
+
+                    <!-- Lana Funko -->
+                    <article class="card project-card carousel-item glow-cyan">
+                        <img src="Media/Images/Render LANITA 3.jpg" alt="Lana Funko Render" loading="lazy">
+                        <div class="card-content">
+                            <span class="badge badge-accent">Modelado 3D</span>
+                            <h4>Lana Funko</h4>
+                            <p class="meta-label">Pieza de colección virtual</p>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto Sinvi -->
+                    <article class="card project-card carousel-item glow-yellow">
+                        <img src="Media/Images/Sinvi Pokemón.jpg" alt="Eva / Sinvi" loading="lazy">
+                        <div class="card-content">
+                            <span class="badge badge-accent">Modelado 3D</span>
+                            <h4>Proyecto Sinvi</h4>
+                            <p class="meta-label">Renders en alta calidad</p>
+                        </div>
+                    </article>
+
+                    <!-- Spinel -->
+                    <article class="card project-card carousel-item glow-pink">
+                        <div class="inner-carousel">
+                            <img src="Media/Images/Spinel 3K p.png" alt="Spinel 3D Render" class="inner-item"
+                                loading="lazy">
+                            <img src="Media/Images/MayaSipinel.png" alt="Spinel Maya Rigging" class="inner-item"
+                                loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="badge badge-accent">Personaje Riggeado</span>
+                            <h4>Spinel (Steven Universe)</h4>
+                            <p class="meta-label">Desliza sobre la imagen para ver la topología.</p>
+                        </div>
+                    </article>
+
+                    <!-- Mommy Long Legs -->
+                    <article class="card project-card carousel-item glow-pink">
+                        <img src="Media/Images/Moomy Long Legs 5.png" alt="Mommy Long Legs 3D Render" loading="lazy">
+                        <div class="card-content">
+                            <span class="badge badge-accent">Modelado 3D</span>
+                            <h4>Mommy Long Legs</h4>
+                            <p class="meta-label">Recreación 3D del personaje.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
 
             <!-- Development -->

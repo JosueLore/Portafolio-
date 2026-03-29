@@ -137,6 +137,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
+       GALLERY CAROUSEL NAVIGATION
+       ========================================================================== */
+    const mainGallery = document.getElementById('main-gallery');
+    const galleryPrevBtn = document.getElementById('gallery-prev');
+    const galleryNextBtn = document.getElementById('gallery-next');
+
+    if (mainGallery && galleryPrevBtn && galleryNextBtn) {
+        galleryPrevBtn.addEventListener('click', () => {
+            const cardWidth = mainGallery.querySelector('.carousel-item').offsetWidth + 24; // var(--space-6) gap
+            mainGallery.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        galleryNextBtn.addEventListener('click', () => {
+            const cardWidth = mainGallery.querySelector('.carousel-item').offsetWidth + 24;
+            mainGallery.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+    }
+
+    /* ==========================================================================
        CINEMATIC VIDEO SHOWCASE INTERACTION (SWAP)
        ========================================================================== */
     const showcaseContainer = document.querySelector('.video-showcase');
