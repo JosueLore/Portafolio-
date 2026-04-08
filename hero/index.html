@@ -1,1 +1,989 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Development - Documentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #111827;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            border: 1px solid #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1f2937 100%);
+            background-image: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="40" height="40"><path d="M0 0h40v40H0z" fill="none" stroke="%23374151" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="%231f2937"/><rect width="100" height="100" fill="url(%23a)"/></svg>');
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.8;
+            color: #93c5fd;
+        }
+
+        nav {
+            background: #1f2937;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #3b82f6;
+            overflow-x: auto;
+        }
+
+        nav a {
+            flex: 1;
+            min-width: 150px;
+            padding: 18px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #93c5fd;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-right: 1px solid #374151;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        nav a:last-child {
+            border-right: none;
+        }
+
+        nav a:hover {
+            background: #2d3748;
+            color: #60a5fa;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        nav a.active {
+            background: #2d3748;
+            color: #60a5fa;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #60a5fa;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 20px;
+        }
+
+        h3 {
+            color: #93c5fd;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        h4 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+        }
+
+        .section-content {
+            margin-bottom: 30px;
+        }
+
+        .text-area {
+            background: #1f2937;
+            border: 2px solid #374151;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            min-height: 100px;
+            font-size: 1em;
+            line-height: 1.6;
+            color: #9ca3af;
+            color-scheme: dark;
+        }
+
+        .text-area:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: #111827;
+            color: #e0e0e0;
+        }
+
+        .text-area.filled {
+            color: #e0e0e0;
+            border-color: #3b82f6;
+            background: #111827;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #374151;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .gallery-item p {
+            margin-top: 12px;
+            font-size: 0.9em;
+            color: #60a5fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .grid-item {
+            background: #1f2937;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #3b82f6;
+            border: 2px solid #374151;
+        }
+
+        .grid-item:hover {
+            border-color: #3b82f6;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            background: #1f2937;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 25px 0;
+            border: 2px solid #374151;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .pdf-container {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 2px solid #374151;
+        }
+
+        .pdf-container embed {
+            width: 100%;
+            min-height: 600px;
+            border-radius: 8px;
+        }
+
+        .reference-item {
+            background: #1f2937;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border-left: 5px solid #3b82f6;
+            border: 2px solid #374151;
+        }
+
+        .reference-item:hover {
+            border-color: #3b82f6;
+        }
+
+        .reference-item h4 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .reference-item p {
+            color: #9ca3af;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .reference-item .ref-label {
+            color: #6b7280;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .ref-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+            transition: color 0.2s ease;
+        }
+
+        .ref-link:hover {
+            color: #93c5fd;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin: 30px 0;
+        }
+
+        .timeline-event {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .timeline-marker {
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            background: #1f2937;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #3b82f6;
+            border: 2px solid #374151;
+        }
+
+        .timeline-content h4 {
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: #9ca3af;
+            font-size: 0.95em;
+        }
+
+        button {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid #374151;
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .image-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header style="padding: 20px 0;">
+            <img src="Avances/Logo THAD.png" alt="The Hero is Already Dead Logo" class="main-logo"
+                style="width:30; max-width: 800px; height: auto; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));">
+            <p></p>
+        </header>
+
+        <nav>
+            <a onclick="showSection('idea', event)">💡 Idea</a>
+            <a onclick="showSection('prototipo', event)">🎨 Prototipo</a>
+            <a onclick="showSection('imagenes', event)">🖼️ Gráficos</a>
+            <a onclick="showSection('cronograma', event)">📅 Timeline</a>
+            <a onclick="showSection('organigrama', event)">👥 Equipo</a>
+            <a onclick="showSection('referencias', event)">📚 Referencias</a>
+        </nav>
+
+        <div class="content">
+            <!-- SECCIÓN: IDEA INICIAL -->
+            <section id="idea" class="active">
+                <h2>💡 Concepto & Visión</h2>
+
+                <div class="section-content">
+                    <h3>Concepto Principal</h3>
+                    <div class="text-area" contenteditable="true">
+                        Juego de cartas por turnos con combate contra jefes, inspirado en slay the spyre y juegos por el
+                        estilo . El juego combina mecánicas de estrategia, roguelike.
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="grid-item">
+                        <h4>🎯 Género & Gameplay</h4>
+                        <div class="text-area" contenteditable="true">
+                            Juego de cartas por turnos con combate contra jefes.gestor de turnos y base de datos
+                            dinámica de cartas.
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <h4>👥 Audiencia Objetivo</h4>
+                        <div class="text-area" contenteditable="true">
+                            Jugadores de 12+ años que disfrutan de juegos de estrategia, roguelikes y narrativa
+                            integrada en mecánicas de juego.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Mecánicas Principales</h3>
+                    <div class="text-area" contenteditable="true">
+                        • Motor de turnos implementado
+                        • Sistema de cartas base completado
+                        • Combate contra el primer jefe
+                        • Flujo de juego establecido
+                        • Sistema de guardado y persistencia
+                        • Balanceo matemático de dificultad
+                        • Efectos visuales (VFX) de magia y daño
+                        • rejugabilidad a través de generación procedural de niveles
+
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="grid-item">
+                        <h4>🎮 Plataformas</h4>
+                        <div class="text-area" contenteditable="true">
+                            Godot (Motor gráfico principal)
+                            Ejecutable para PC (Windows)
+                            Compilación multiplataforma preparada
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <h4>🏆 Objetivos del Proyecto</h4>
+                        <div class="text-area" contenteditable="true">
+                            Etapa 1: Completar motor de turnos, primer jefe, cartas base y flujo completo (30/Jun/2026)
+                            Etapa 2: Expansión a 3 mapas, nuevos jefes, VFX final (30/Nov/2026)
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: PROTOTIPO -->
+            <section id="prototipo">
+                <h2>🎨 Prototipo & Avances</h2>
+
+                <div class="section-content">
+                    <h3>Descripción del Prototipo</h3>
+                    <div class="text-area" contenteditable="true">
+                        Prototipo jugable implementado en Godot con:
+                        • Arquitectura de nodos completa
+                        • Base de datos de cartas funcional
+                        • Gestor de turnos y estados del juego (Core loop)
+                        • Interfaz UI con botones y cartas interactivas
+                        • Primer jefe implementado con animaciones
+                        • Sistema de audio y música integrado
+                        • Diseño visual y composición de escena en Godot
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>🎬 Video del Prototipo</h3>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="Avances/Grabación de pantalla 2026-03-04 204630.mp4" type="video/mp4">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
+                    </div>
+                    <div class="video-container">
+                        <video controls>
+                            <source src="Avances/Prototipo_2.mp4" type="video/mp4">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="grid-item">
+                        <h4>📋 Mecánicas Implementadas</h4>
+                        <div class="text-area" contenteditable="true">
+                            ✓ Motor de turnos funcional
+                            ✓ Sistema de cartas base
+                            ✓ Combate contra jefe
+                            ✓ Gestor de estados del juego
+                            ✓ Interfaz interactiva
+                            ✓ Sistema de guardado
+                            ✓ Audio y animaciones
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <h4>✅ Resultados & Aprendizajes</h4>
+                        <div class="text-area" contenteditable="true">
+                            Se identificaron puntos de optimización para el balanceo matemático y mejoras en UX/UI. El
+                            playtesting interno reveló oportunidades para mejorar la claridad de mecánicas.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>🚀 Próximos Pasos</h3>
+                    <div class="text-area" contenteditable="true">
+                        1. Refinamiento del balanceo matemático (01-15 Jun)
+                        2. Corrección de bugs y QA completo (20-30 Jun)
+                        3. Diseño de niveles 2 y 3 con nuevas mecánicas (Ago 2026)
+                        4. Modelado y animación de jefes 2 y 3
+                        5. Sistema de guardado persistencia de mazo
+                        6. Integración de VFX avanzados y pulido final
+                        7. Playtesting intensivo y bug fixing final (Nov 2026)
+                        8. Compilación de ejecutables maestros (30 Nov 2026)
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: IMÁGENES -->
+            <section id="imagenes">
+                <h2>🖼️ Gráficos & Assets</h2>
+
+                <div class="section-content">
+                    <h3>🃏 Cartas del Juego</h3>
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="assets cartas/1.png" alt="Carta 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/2.png" alt="Carta 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/3.png" alt="Carta 3">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/4.png" alt="Carta 4">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/5.png" alt="Carta 5">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/6.png" alt="Carta 6">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/7.png" alt="Carta 7">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/8.png" alt="Carta 8">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>⭐ Iconografía</h3>
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="assets cartas/iconos/1_CORAZON.png" alt="Corazón">
+                            <p>❤️ Vida</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/iconos/2_ESCUDO.png" alt="Escudo">
+                            <p>🛡️ Defensa</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/iconos/3_ESPADA.png" alt="Espada">
+                            <p>⚔️ Ataque</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/iconos/4_CALACA.png" alt="Calavera">
+                            <p>💀 Muerte</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/iconos/5_LIBRO.png" alt="Libro">
+                            <p>📖 Conocimiento</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets cartas/iconos/6_ESPADAS.png" alt="Espadas">
+                            <p>⚔️ Poder</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <!-- SECCIÓN: CRONOGRAMA -->
+            <section id="cronograma">
+                <h2>📅 Cronograma & Timeline</h2>
+
+                <div class="section-content">
+                    <h3>Plan de Desarrollo</h3>
+                    <div class="pdf-container">
+                        <embed src="CRONOGRAMA  (1).pdf" type="application/pdf">
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Hitos Principales - ETAPA 1: Motor Base (01 Mar - 30 Jun 2026)</h3>
+                    <div class="timeline">
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Fase 1: Game Design & Concept Art (01-15 Mar)</h4>
+                                <p contenteditable="true">Adrian: Documento de Diseño, Reglas Base y Lore | Josué:
+                                    Concept Art y Bocetaje de cartas</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Fase 2: Arquitectura Técnica (10 Mar - 31 Mar)</h4>
+                                <p contenteditable="true">David: Arquitectura de Nodos y Base de Datos de Cartas en
+                                    Godot</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Fase 3: Modelado & VFX (16 Mar - 15 May)</h4>
+                                <p contenteditable="true">Josué: Modelado 3D (Low Poly) escenarios y 1er Jefe | Rigging
+                                    y Animación (16 Abr - 15 May)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Fase 4: UI & Core Loop (01 Abr - 30 Abr)</h4>
+                                <p contenteditable="true">Julián: Diseño visual UI/2D & Marcos de Cartas | David: Gestor
+                                    de Turnos y Estados</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Fase 5: Interactividad & Audio (01 May - 31 May)</h4>
+                                <p contenteditable="true">David: Programación de botones y cartas interactivas | Julián:
+                                    Composición musical y SFX</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Fase 6: Integración & Testing (05 Jun - 30 Jun)</h4>
+                                <p contenteditable="true">David: Integración de Audio y Animaciones | Equipo:
+                                    Playtesting, Bug fixing, QA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Hitos Principales - ETAPA 2: Expansión & Pulido (01 Ago - 30 Nov 2026)</h3>
+                    <div class="timeline">
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Nuevos Niveles & Jefes (01 Ago - 30 Sep)</h4>
+                                <p contenteditable="true">Adrian: Diseño de Niveles 2 y 3 | Josué: Concept Art y
+                                    Modelado 3D de nuevos Jefes</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Sistema de Guardado (10 Sep - 30 Sep)</h4>
+                                <p contenteditable="true">David: Implementación de persistencia de mazo y progreso del
+                                    jugador</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>VFX Avanzados & Storytelling (15 Sep - 15 Oct)</h4>
+                                <p contenteditable="true">Adrian: Integración narrativa y nuevos hechizos | Julián:
+                                    Creación de VFX (partículas, efectos de magia)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Pulido Visual & Audio (15 Oct - 31 Oct)</h4>
+                                <p contenteditable="true">Josué: Pulido de iluminación y optimización | Julián: SFX
+                                    avanzados y música de niveles 2-3</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Balanceo Final & Testing (01 Nov - 30 Nov)</h4>
+                                <p contenteditable="true">Adrian: Balanceo matemático final | Julián: Playtesting
+                                    intensivo | Equipo: Bug fixing y compilación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Estado Actual del Proyecto</h3>
+                    <div class="text-area" contenteditable="true">
+                        ETAPA 1 (En curso): Motor de turnos y primer jefe completados
+                        Fecha de entrega Etapa 1: 30 de Junio 2026
+                        Fecha de entrega Etapa 2: 30 de Noviembre 2026
+                        Docente Asesor: Romina Blanco Cintrón
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: ORGANIGRAMA -->
+            <section id="organigrama">
+                <h2>👥 Estructura del Equipo</h2>
+
+                <div class="section-content">
+                    <h3>Organigrama</h3>
+                    <div class="pdf-container">
+                        <embed src="Avances/Plantilla_Organigrama (1).pdf" type="application/pdf">
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Miembros del Equipo</h3>
+                    <div class="grid-2">
+                        <div class="grid-item">
+                            <h4>👨‍💼 Dirección General</h4>
+                            <div class="text-area" contenteditable="true">
+                                David Adrián Ibarra del Castillo (Visión creativa)
+                                David Antonio Quinones López (Arquitectura técnica)
+                                Lideran conjuntamente el proyecto asegurando alineación entre visión creativa y
+                                capacidades técnicas del motor.
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h4>🎨 Área de Modelado & Arte</h4>
+                            <div class="text-area" contenteditable="true">
+                                Josué Lorenzo Ramírez
+                                • Concept Art de personajes
+                                • Modelado 3D (Low Poly) de jefes y escenarios
+                                • Rigging y Animación
+                                • Texturizado 2D/3D
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="grid-item">
+                            <h4>💻 Área de Desarrollo</h4>
+                            <div class="text-area" contenteditable="true">
+                                David Antonio Quinones López
+                                • Arquitectura de nodos en Godot
+                                • Base de datos de cartas
+                                • Gestor de turnos y estados
+                                • Sistema de guardado
+                                • Inteligencia Artificial
+                                • Integración de VFX y Audio
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h4>🎵 Área de Producción & Audio</h4>
+                            <div class="text-area" contenteditable="true">
+                                Jorge Julian Torres Ulloa
+                                • Composición Musical
+                                • Efectos de Sonido (SFX)
+                                • Playtesting interno e intensivo
+                                • QA y Detección de errores
+                                • VFX (partículas, efectos de magia)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="grid-item">
+                            <h4>🎮 Dirección Creativa</h4>
+                            <div class="text-area" contenteditable="true">
+                                David Adrián Ibarra del Castillo
+                                • Game Design general
+                                • Documento de diseño y reglas base
+                                • Lore y narrativa
+                                • Diseño de mecánicas
+                                • Balanceo matemático
+                                • Diseño de niveles y progresión
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h4>⚙️ Dirección Técnica</h4>
+                            <div class="text-area" contenteditable="true">
+                                David Antonio Quinones López
+                                • Arquitectura técnica del motor
+                                • Supervisión de implementación en Godot
+                                • Optimización y rendimiento
+                                • Gestión de base de datos
+                                • Integración de sistemas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Responsabilidades Clave</h3>
+                    <div class="text-area" contenteditable="true">
+                        DIRECCIÓN Y VISIÓN:
+                        • Alineación entre visión creativa y capacidades técnicas (Adrian + David)
+                        • Supervisión de cronograma y cumplimiento de hitos (Equipo completo)
+
+                        DISEÑO Y CONTENIDO:
+                        • Documento de Design y balanceo matemático (Adrian)
+                        • Creación de niveles y progresión de dificultad (Adrian)
+                        • Narrativa e integración de storytelling (Adrian)
+
+                        DESARROLLO TÉCNICO:
+                        • Arquitectura de nodos y base de datos (David)
+                        • Gestor de turnos y core loop (David)
+                        • Sistema de guardado y persistencia (David)
+
+                        ARTE Y AUDIO:
+                        • Concept Art y Modelado 3D (Josué)
+                        • Rigging, Animación y Texturizado (Josué)
+                        • Composición musical y SFX (Julián)
+                        • VFX y Pulido visual (Julián)
+
+                        CALIDAD Y TESTING:
+                        • Playtesting intensivo (Julián)
+                        • Detección y reporte de errores (Julián)
+                        • QA final y compilación (Equipo)
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: REFERENCIAS -->
+            <section id="referencias">
+                <h2>📚 Inspiración & Referencias</h2>
+
+                <div class="section-content">
+                    <h3>Juegos de Referencia</h3>
+                    <div class="reference-item">
+                        <h4>Campus Guadalajara Sur</h4>
+                        <p><span class="ref-label">Institución:</span> <span style="color: #e0e0e0;">Campus Guadalajara
+                                Sur</span></p>
+                        <p><span class="ref-label">Docente Asesor:</span> <span style="color: #e0e0e0;">Romina Blanco
+                                Cintrón</span></p>
+                        <p><span class="ref-label">Proyecto:</span> <span style="color: #e0e0e0;">Motor de Videojuegos
+                                Avanzado</span></p>
+                    </div>
+
+                    <div class="reference-item">
+                        <h4>Integrantes del Equipo</h4>
+                        <p><span class="ref-label">Programación:</span> <span style="color: #e0e0e0;">David Antonio
+                                Quinones López</span></p>
+                        <p><span class="ref-label">Game Design:</span> <span style="color: #e0e0e0;">David Adrián Ibarra
+                                del Castillo</span></p>
+                        <p><span class="ref-label">Modelado & Arte:</span> <span style="color: #e0e0e0;">Josué Lorenzo
+                                Ramírez</span></p>
+                        <p><span class="ref-label">Audio & Producciónn:</span> <span style="color: #e0e0e0;">Jorge
+                                Julian Torres Ulloa</span></p>
+                    </div>
+
+                    <div class="reference-item">
+                        <h4>Motor Gráfico</h4>
+                        <p><span class="ref-label">Engine Principal:</span> <span style="color: #e0e0e0;">Godot
+                                4.x</span></p>
+                        <p><span class="ref-label">Lenguaje:</span> <span style="color: #e0e0e0;">GDScript</span></p>
+                        <p><span class="ref-label">Sistema:</span> <span style="color: #e0e0e0;">Arquitectura de Nodos,
+                                Base de Datos de Cartas</span></p>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Inspiración Visual & Artística</h3>
+                    <div class="text-area" contenteditable="true">
+                        Estilo de arte inspirado en:
+                        • Concepto Art moderno de juegos indie
+                        • Modelado Low Poly para optimización
+                        • Paleta de colores coherente y legible
+                        • Efectos de partículas dinámicos para feedback visual
+                        • Animaciones fluidas y responsivas
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Recursos Técnicos</h3>
+                    <div class="grid-2">
+                        <div class="grid-item">
+                            <h4>⚙️ Engine & Herramientas Principales</h4>
+                            <div class="text-area" contenteditable="true">
+                                Engine: Godot 4.6
+                                Lenguaje: GDScript
+                                Control de Versiones: Git
+                                Editor de Código: VS Code
+                                Herramientas de Audio: DAW (REAPER/FL Studio)
+                                Modelado 3D: Blender y maya
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h4>🔧 Sistemas & Arquitectura</h4>
+                            <div class="text-area" contenteditable="true">
+                                • Base de Datos de Cartas
+                                • Gestor de Turnos (Turn Manager)
+                                • Sistema de Estados (State Machine)
+                                • Persistencia de Datos (Save System)
+                                • Inteligencia Artificial básica
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <h3>Enlaces Importantes</h3>
+                    <div class="reference-item">
+                        <p><span class="ref-label">Documentación Godot:</span> <a href="https://docs.godotengine.org"
+                                class="ref-link" target="_blank">https://docs.godotengine.org</a></p>
+                        <p><span class="ref-label">Comunidad Godot:</span> <a href="https://godotengine.org"
+                                class="ref-link" target="_blank">https://godotengine.org</a></p>
+                        <p><span class="ref-label">Repositorio del Proyecto:</span> <a href="#" class="ref-link"
+                                contenteditable="true">Enlace al repositorio Git</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId, event) {
+            event.preventDefault();
+
+            // Ocultar todas las secciones
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Mostrar la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // Actualizar navegación activa
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Permitir editar el texto al hacer clic
+        document.querySelectorAll('[contenteditable="true"]').forEach(element => {
+            element.addEventListener('focus', function () {
+                this.classList.add('filled');
+            });
+
+            element.addEventListener('blur', function () {
+                if (this.textContent.trim() === '') {
+                    this.classList.remove('filled');
+                }
+            });
+        });
+
+        // Inicializar la primera sección
+        document.querySelectorAll('nav a')[0].classList.add('active');
+    </script>
+</body>
+
+</html>
