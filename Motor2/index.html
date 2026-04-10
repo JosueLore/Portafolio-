@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor de videojuegos avanzado</title>
+</head>
+<body>
+    <h1>Creación de IA 6</h1>
+    <h2>Desarrollado por: Josué Lorenzo Ramírez</h2>
+    
+    <button id="theme-toggle" class="btn btn-secondary mb-3">Modo Oscuro</button>
+    
+    <img src="./asets/img01.png" class="img-fluid" alt="">
+
+    <h2>Guía rápida de inicio del árbol de comportamiento</h2>
+    <H1>Esta guía muestra cómo usar los Árboles de Comportamiento para configurar un personaje controlado por la IA que patrulle o persiga a un jugador.</H1>
+ <img src="./asets/modeling-mode-crate-result.png" class="img-fluid" alt="">
+
+<p>En la Guía de Inicio Rápido del Árbol de Comportamiento, aprenderás a crear una IA enemiga que responda al ver al jugador y proceda a perseguirlo. Al perder de vista al Jugador, tras unos segundos (que se pueden ajustar según tu preferencia), la IA dejará de perseguirla y se moverá aleatoriamente por el entorno hasta volver a ver al Jugador, como se ve en el vídeo de ejemplo de abajo.</p>
+<p>Aquí va el video final</p>
+
+<p>Al final de esta guía, comprenderás los siguientes sistemas:
+
+Scripting Visual de Planos
+
+Controladores de IA
+
+Pisarras
+
+Árboles de comportamiento
+
+Servicios de árboles de comportamiento
+
+Decoradores de árboles de comportamiento
+
+Tareas del árbol de comportamiento</p>
+
+<h2>1 - Configuración requerida del proyecto</h2>
+<h1>En este primer paso, montamos nuestro proyecto con los recursos que necesitaremos para que nuestro personaje de IA pueda moverse por el entorno.</h1>
+<p>Para esta guía, estamos utilizando un nuevo proyecto de plantilla en tercera persona de Blueprint.</p>
+<img class="img-fluid" src="./asets/1-create-folder.png" alt="">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-bs-theme');
+      if (currentTheme === 'dark') {
+        html.setAttribute('data-bs-theme', 'light');
+        this.textContent = 'Modo Oscuro';
+      } else {
+        html.setAttribute('data-bs-theme', 'dark');
+        this.textContent = 'Modo Claro';
+      }
+    });
+  </script>
+
+</body>
+</html>
