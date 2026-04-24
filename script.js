@@ -6,6 +6,52 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================================
+       IMAGE LOADING STATE SYSTEM
+       Wraps every <img> in a placeholder container, shows a spinner while the
+       image downloads, then fades it in smoothly on the 'load' event.
+       ========================================================================== */
+    function initImageLoadingStates() {
+        // Select all images on the page; skip any already wrapped to be idempotent
+        const allImages = document.querySelectorAll('img:not(.img-wrapper > img)');
+
+        allImages.forEach(img => {
+            const parent = img.parentElement;
+
+            // Create the wrapper that holds the placeholder background
+            const wrapper = document.createElement('div');
+            wrapper.className = 'img-wrapper';
+
+            // Create the centered spinner overlay
+            const spinner = document.createElement('div');
+            spinner.className = 'img-spinner';
+            spinner.setAttribute('aria-hidden', 'true'); // decorative, hidden from SR
+
+            // Insert wrapper in place of the img, then move img inside it
+            parent.insertBefore(wrapper, img);
+            wrapper.appendChild(img);
+            wrapper.appendChild(spinner);
+
+            // Function that marks the image as loaded and triggers the fade-in
+            function onImageLoaded() {
+                img.classList.add('img-loaded');
+                wrapper.classList.add('img-wrapper--loaded');
+            }
+
+            // If already cached by the browser, 'load' won't fire again
+            if (img.complete && img.naturalWidth > 0) {
+                onImageLoaded();
+            } else {
+                img.addEventListener('load', onImageLoaded, { once: true });
+                // Graceful fallback: if image fails, still remove the spinner
+                img.addEventListener('error', onImageLoaded, { once: true });
+            }
+        });
+    }
+
+    // Run first so wrappers exist before other modules query images
+    initImageLoadingStates();
+
+    /* ==========================================================================
        SCROLL ANIMATIONS (Intersection Observer)
        ========================================================================== */
     const observerOptions = {
