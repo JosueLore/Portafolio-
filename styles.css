@@ -1047,11 +1047,9 @@ ul {
 
 .card-content {
     padding: 10%;
-    background: rgba(0, 136, 255, 0.01);
+    background: rgba(0, 0, 0, 0);
     position: relative;
     z-index: 10;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 
 .card-content h4 {
