@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solid Mesh Studio | Optimización de Activos 3D</title>
+    <meta name="description" content="Auditoría técnica de rendimiento y optimización de activos 3D para estudios Indie en Unreal Engine y Godot.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <a href="#" class="logo">Solid <span>Mesh</span> Studio</a>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#demo">Casos de Éxito</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#contacto" class="btn btn-primary">Solicitar Auditoría</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container" id="inicio">
+        <div class="hero-content">
+            <span class="tech-tag">Performance Engineering for Indie Devs</span>
+            <h1>Maximizamos el <span>rendimiento</span> de videojuegos indie.</h1>
+            <p>Eliminamos retrasos y garantizamos una experiencia de juego fluida y eficiente mediante auditorías y optimización técnica de assets 3D.</p>
+            <div class="hero-cta">
+                <a href="#contacto" class="btn btn-primary">Diagnosticar mi Proyecto</a>
+                <a href="#demo" class="btn btn-secondary">Ver Portafolio</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="imagen/Evangelion MAYA_renderfinal.png" alt="Render Final 3D Optimizado de Eva 001">
+            <div class="badge">
+                <span class="tech-tag">Target: 60 FPS Solid</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem container" id="problema">
+        <div class="problem-visual">
+            <img src="imagen/Eva001Maya_Viewport.png" alt="Malla 3D densa y caótica en viewport">
+        </div>
+        <div class="problem-content">
+            <span class="tech-tag">Diagnóstico</span>
+            <h2>¿Mallas sobredensas destruyendo tus <span>FPS</span>?</h2>
+            <p>La mala optimización técnica de modelos 3D causa problemas críticos de rendimiento. Para los estudios pequeños, corregir estos errores implica costosos retrabajos o retrasos severos con artistas externos, impactando negativamente sus limitados presupuestos.</p>
+            <p>Esto genera frustración en el jugador y un grave daño a la reputación comercial del estudio. Además, las alternativas actuales como comprar paquetes genéricos rompen la dirección de arte, y los freelancers económicos suelen entregar mallas con mala topología.</p>
+        </div>
+    </section>
+
+    <!-- Services / Solutions -->
+    <section class="services container" id="servicios">
+        <span class="tech-tag">Pipeline Técnico</span>
+        <h2>Soluciones de Optimización 3D</h2>
+        
+        <div class="services-grid">
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h3>Auditoría de Rendimiento</h3>
+                <p>Nos enfocamos en el rendimiento técnico (FPS) sobre la estética pura. Realizamos diagnósticos directamente en motor (Unreal/Godot) para identificar y eliminar cuellos de botella.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📐</div>
+                <h3>Retopología y Mallas Técnicas</h3>
+                <p>Optimizamos mallas técnicas complejas usando Blender/Maya. Limpieza de topología garantizando assets listos para integración directa sin problemas de animación.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Bakeo y Mapeo UV</h3>
+                <p>Eficiencia total en UVs y bakeo de texturas para reducir el consumo de VRAM y draw calls, entregando assets ligeros y con máxima fidelidad visual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo / Interactive Slider Section -->
+    <section class="demo container" id="demo">
+        <span class="tech-tag">Case Study</span>
+        <h2>El Impacto de una Buena Topología</h2>
+        <p>Arrastra el deslizador para ver la diferencia entre un esculpido base y nuestra malla optimizada para motores en tiempo real.</p>
+        
+        <div class="slider-container" id="before-after-slider">
+            <div class="slider-labels">
+                <span class="slider-label">Antes (Malla Densa)</span>
+                <span class="slider-label">Después (Retopología + UVs)</span>
+            </div>
+            <!-- BEFORE IMAGE -->
+            <img src="imagen/Eva001Maya_Viewport.png" alt="Malla original densa" class="slider-image slider-before">
+            <!-- AFTER IMAGE -->
+            <img src="imagen/Eva001maya_Rigg.png" alt="Retopología optimizada lista para animación" class="slider-image slider-after" id="slider-after-img">
+            
+            <div class="slider-handle" id="slider-handle"></div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <ul class="benefits-list container">
+            <li><strong>Funcional:</strong> Logra FPS estables, reduce tiempos de carga, ahorra hasta 30% en retrabajos y cumple tus fechas de lanzamiento.</li>
+            <li><strong>Emocional:</strong> Obtén tranquilidad total al saber que tu juego corre fluido y reduce el estrés por fechas de entrega críticas (crunch).</li>
+            <li><strong>Social:</strong> Asegura reseñas positivas en Steam, gana respeto en la industria y atrae inversionistas con un demo impecable.</li>
+        </ul>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section class="contact container" id="contacto">
+        <div class="contact-info">
+            <h2>¿Listo para optimizar tu proyecto? <br><span style="color: var(--accent-orange);">Hablemos de técnica.</span></h2>
+            <p style="border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 1.5rem; color: var(--text-main);">
+                <strong>Aviso:</strong> Este servicio está diseñado específicamente para Directores Generales, Lead Developers y pequeños estudios independientes (Indie) con presupuestos limitados.
+            </p>
+            <p>Envíanos un mensaje con los detalles de tu juego y analizaremos cómo podemos ayudarte a alcanzar tus metas de rendimiento.</p>
+            
+            <div style="margin-top: 3rem;">
+                <div class="info-item">
+                    <h4>TELÉFONO</h4>
+                    <p>+52 3481248260</p>
+                </div>
+                <div class="info-item">
+                    <h4>EMAIL DIRECTO</h4>
+                    <p>josuelorenzoramirez16@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensaje enviado. Te contactaremos pronto.');">
+                <div class="form-group">
+                    <label for="name">Nombre / Cargo</label>
+                    <input type="text" id="name" class="form-control" required placeholder="John Doe, Lead Developer">
+                </div>
+                
+                <div class="form-group">
+                    <label for="studio">Estudio / Empresa</label>
+                    <input type="text" id="studio" class="form-control" required placeholder="Indie Games Studio">
+                </div>
+                
+                <div class="form-group">
+                    <label for="engine">Motor de Juego</label>
+                    <select id="engine" class="form-control" required>
+                        <option value="" disabled selected>Selecciona un motor</option>
+                        <option value="unreal">Unreal Engine</option>
+                        <option value="godot">Godot</option>
+                        <option value="unity">Unity</option>
+                        <option value="custom">Motor Propio / Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="link">Enlace al proyecto (Opcional)</label>
+                    <input type="url" id="link" class="form-control" placeholder="Steam page, Itch.io, Youtube...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje / ¿Cuál es tu problema técnico?</label>
+                    <textarea id="message" class="form-control" required placeholder="Describe brevemente los problemas de rendimiento o los assets que necesitas optimizar..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Presupuesto</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">Solid <span>Mesh</span></div>
+        <p>&copy; 2026 Solid Mesh Studio. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#">ArtStation</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter/X</a>
+        </div>
+    </footer>
+
+    <!-- Slider Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('before-after-slider');
+            const afterImg = document.getElementById('slider-after-img');
+            const handle = document.getElementById('slider-handle');
+            
+            let isDragging = false;
+
+            function slide(e) {
+                if (!isDragging) return;
+                
+                // Get x position relative to container
+                const rect = container.getBoundingClientRect();
+                let x;
+                
+                if (e.type.includes('mouse')) {
+                    x = e.clientX - rect.left;
+                } else if (e.type.includes('touch')) {
+                    x = e.touches[0].clientX - rect.left;
+                }
+                
+                // Boundaries
+                if (x < 0) x = 0;
+                if (x > rect.width) x = rect.width;
+                
+                // Calculate percentage
+                const percentage = (x / rect.width) * 100;
+                
+                // Apply changes
+                handle.style.left = `${percentage}%`;
+                afterImg.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
+            }
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; slide(e); });
+            container.addEventListener('touchstart', (e) => { isDragging = true; slide(e); }, {passive: true});
+            
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            
+            window.addEventListener('mousemove', slide);
+            window.addEventListener('touchmove', slide, {passive: true});
+            
+            // Set initial state
+            afterImg.style.clipPath = `polygon(50% 0, 100% 0, 100% 100%, 50% 100%)`;
+        });
+    </script>
+</body>
+</html>
