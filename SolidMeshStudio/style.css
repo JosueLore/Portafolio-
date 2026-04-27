@@ -153,7 +153,7 @@ section {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -288,7 +288,7 @@ section {
 
 .slider-container {
     position: relative;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 3rem auto 0;
     border-radius: 16px;
     overflow: hidden;
