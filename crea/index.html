@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iluminación en Maya 3D con Arnold Renderer</title>
+  <meta name="description"
+    content="Domina el comportamiento de la luz y optimiza tus renders. Nivel Básico-Intermedio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header class="top-header">
+    <nav class="nav-container">
+      <div class="brand">
+        <img src="./IMAGES/CREA.jpg" alt="Logo CREA" class="brand-logo">
+        <span class="brand-name">CREA</span>
+      </div>
+      <ul class="nav-links">
+        <li><button type="button" class="nav-btn" id="btn-back">⬅ Atrás</button></li>
+        <li><button type="button" class="nav-btn" id="btn-forward">Adelante ➡</button></li>
+        <li><button type="button" class="nav-btn active" data-target="view-home">Ruta de Aprendizaje</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="app-content">
+
+    <!-- VIEW: RUTA DE APRENDIZAJE -->
+    <section id="view-home" class="view-section active">
+      <header class="course-hero">
+        <div class="hero-content">
+          <div class="hero-institution">
+            <img src="./IMAGES/CREA.jpg" alt="Logo CREA" class="hero-logo">
+            <span>Curso ofrecido por <strong>CREA</strong></span>
+          </div>
+          <h1>Iluminación en Maya 3D con Arnold Renderer</h1>
+          <p class="subtitle">Domina el comportamiento de la luz y optimiza tus renders. Nivel Básico-Intermedio.</p>
+          <button type="button" class="btn btn-primary btn-large cta-start" data-target="view-module-1">Iniciar Ruta de
+            Aprendizaje</button>
+        </div>
+      </header>
+
+      <section class="learning-path">
+        <h2>Tu Ruta de Aprendizaje</h2>
+        <div class="modules-grid">
+
+          <article class="module-card available" id="card-mod-1">
+            <header class="card-header">
+              <span class="module-number">Módulo 1</span>
+              <span class="status-badge available">Disponible</span>
+            </header>
+            <h3>Introducción a la Iluminación en Maya con Arnold</h3>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 0%;"></div>
+            </div>
+            <footer class="card-footer">
+              <button type="button" class="btn btn-secondary module-entry-btn" data-target="view-module-1">Entrar al
+                Módulo</button>
+            </footer>
+          </article>
+
+          <article class="module-card locked" id="card-mod-2">
+            <header class="card-header">
+              <span class="module-number">Módulo 2</span>
+              <span class="status-badge locked" id="badge-mod-2">Bloqueado</span>
+            </header>
+            <h3>Control y Ajuste de Luces</h3>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 0%;"></div>
+            </div>
+            <footer class="card-footer">
+              <p class="lock-message" id="msg-mod-2">Se desbloquea al aprobar Quiz 1</p>
+              <button type="button" class="btn btn-secondary module-entry-btn hidden" data-target="view-module-2"
+                id="btn-mod-2">Entrar al Módulo</button>
+            </footer>
+          </article>
+
+          <article class="module-card locked" id="card-mod-3">
+            <header class="card-header">
+              <span class="module-number">Módulo 3</span>
+              <span class="status-badge locked" id="badge-mod-3">Bloqueado</span>
+            </header>
+            <h3>Render Sampling y Optimización</h3>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 0%;"></div>
+            </div>
+            <footer class="card-footer">
+              <p class="lock-message" id="msg-mod-3">Se desbloquea al aprobar Quiz 2</p>
+              <button type="button" class="btn btn-secondary module-entry-btn hidden" data-target="view-module-3"
+                id="btn-mod-3">Entrar al Módulo</button>
+            </footer>
+          </article>
+
+        </div>
+      </section>
+    </section>
+
+    <!-- MÓDULO 1 -->
+    <section id="view-module-1" class="view-section hidden">
+      <div class="module-layout">
+        <aside class="sidebar-nav">
+          <nav>
+            <h4>Contenido del Curso</h4>
+            <ul class="sidebar-links">
+              <li><button type="button" class="sidebar-btn active" data-target="view-module-1">Módulo 1:
+                  Introducción</button></li>
+              <li><button type="button" class="sidebar-btn locked-link" data-target="view-module-2"
+                  id="side-mod-2">Módulo 2: Control de Luces</button></li>
+              <li><button type="button" class="sidebar-btn locked-link" data-target="view-module-3"
+                  id="side-mod-3">Módulo 3: Optimización</button></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <article class="module-content">
+          <header class="module-header">
+            <h2>Módulo 1: Introducción a la Iluminación en Maya con Arnold</h2>
+          </header>
+
+          <figure class="video-container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/e0-FIuYphBw"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </figure>
+
+          <section class="text-section">
+            <h3>¿Qué es Arnold Renderer y por qué usarlo?</h3>
+            <p>Arnold es un motor de renderizado por trazado de rayos (ray tracing) basado en la física, integrado
+              nativamente en Maya. Su ventaja principal es el fotorrealismo: en lugar de usar trucos visuales, calcula
+              cómo rebotan los fotones de forma matemática, produciendo resultados profesionales con menos esfuerzo
+              manual.</p>
+          </section>
+
+          <section class="text-section">
+            <h3>Tipos de luces disponibles</h3>
+            <p>Accede a ellas desde: <strong>Arnold > Lights</strong> en el menú superior.</p>
+            <ul>
+              <li><strong>Point Light:</strong> Emite luz en todas las direcciones desde un punto infinitamente pequeño.
+                Ideal para focos desnudos o bombillas.</li>
+              <li><strong>Area Light:</strong> Emite luz desde una superficie plana. Genera sombras suaves y realistas.
+                La más usada en producción.</li>
+              <li><strong>Directional Light:</strong> Simula una fuente lejana con rayos paralelos (como el sol). Solo
+                importa su rotación, no su posición.</li>
+              <li><strong>Spot Light:</strong> Proyecta luz en forma de cono. Ideal para destacar objetos específicos.
+              </li>
+              <li><strong>Mesh Light:</strong> Convierte cualquier geometría 3D en fuente de luz.</li>
+              <li><strong>Skydome Light:</strong> Esfera gigante que rodea la escena para iluminación global con HDRI.
+              </li>
+            </ul>
+
+            <figure class="content-image">
+              <img src="./IMAGES/IMG_1.jpg" alt="Point Light colocada frente a un objeto en el Viewport de Maya"
+                loading="lazy">
+              <figcaption>Point Light colocada frente a un objeto en el Viewport de Maya</figcaption>
+            </figure>
+          </section>
+
+          <section class="text-section">
+            <h3>Parámetros básicos de iluminación</h3>
+            <p>Al seleccionar una luz, el Attribute Editor muestra:</p>
+            <ul>
+              <li><strong>Color:</strong> Tono de la luz. Puedes usar paleta RGB o activar "Color Temperature" en grados
+                Kelvin. (3200K = luz cálida de interior / 6500K = luz de día)</li>
+              <li><strong>Intensity:</strong> Multiplicador base de la fuerza de la luz.</li>
+              <li><strong>Exposure:</strong> Controla la potencia en pasos fotográficos. +1 de exposición duplica la
+                luz. Es el control principal de brillo en Arnold.</li>
+            </ul>
+
+            <figure class="content-image">
+              <img src="./IMAGES/IMG_2.jpg"
+                alt="Attribute Editor con parámetros Intensity, Exposure y Color de una luz Arnold" loading="lazy">
+              <figcaption>Attribute Editor con parámetros Intensity, Exposure y Color de una luz Arnold</figcaption>
+            </figure>
+
+            <aside class="production-tip">
+              <span class="tip-icon">💡</span>
+              <div class="tip-content">
+                <h4>Tip de Producción</h4>
+                <p>En Arnold, mantén la Intensity en 1 y controla la potencia exclusivamente con Exposure. Es más
+                  intuitivo y matemáticamente correcto.</p>
+              </div>
+            </aside>
+
+            <aside class="production-tip">
+              <span class="tip-icon">💡</span>
+              <div class="tip-content">
+                <h4>Tip de Producción</h4>
+                <p>Usa temperatura de color en lugar del selector RGB cuando busques realismo: 3200K para interiores
+                  cálidos, 5500K–6500K para luz de día.</p>
+              </div>
+            </aside>
+          </section>
+
+          <footer class="module-footer">
+            <button type="button" class="btn btn-accent btn-large" data-target="view-quiz-1">Realizar Quiz 1</button>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- MÓDULO 2 -->
+    <section id="view-module-2" class="view-section hidden">
+      <div class="module-layout">
+        <aside class="sidebar-nav">
+          <nav>
+            <h4>Contenido del Curso</h4>
+            <ul class="sidebar-links">
+              <li><button type="button" class="sidebar-btn" data-target="view-module-1">Módulo 1: Introducción</button>
+              </li>
+              <li><button type="button" class="sidebar-btn active" data-target="view-module-2">Módulo 2: Control de
+                  Luces</button></li>
+              <li><button type="button" class="sidebar-btn locked-link" data-target="view-module-3"
+                  id="side-mod-3-b">Módulo 3: Optimización</button></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <article class="module-content">
+          <header class="module-header">
+            <h2>Módulo 2: Control y Ajuste de Luces</h2>
+          </header>
+
+          <figure class="video-container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-vO0m9gyuLw"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </figure>
+
+          <section class="text-section">
+            <h3>Area Light vs Point Light vs Skydome</h3>
+            <ul>
+              <li><strong>Point Light:</strong> Sombras duras y nítidas por su tamaño puntual. Útil para brillos
+                especulares precisos.</li>
+              <li><strong>Area Light:</strong> A mayor tamaño físico, sombras más suaves. Esencial para iluminación de
+                estudio y retratos.</li>
+              <li><strong>Skydome Light:</strong> Sin un Skydome activo, las áreas en sombra serán completamente negras
+                (cero rebote ambiental).</li>
+            </ul>
+          </section>
+
+          <section class="text-section">
+            <h3>HDRI con Skydome</h3>
+            <p>Conecta una imagen HDRI al Skydome para que Arnold lea los píxeles brillantes de esa imagen y proyecte
+              luz y reflejos realistas sobre tus modelos. El HDRI no solo es fondo: es la fuente de iluminación
+              completa.</p>
+
+            <figure class="content-image">
+              <img src="./IMAGES/IMG_3.jpg"
+                alt="IPR activo en el Viewport mostrando diferencia de escena con y sin Skydome Light" loading="lazy">
+              <figcaption>IPR activo en el Viewport mostrando diferencia de escena con y sin Skydome Light</figcaption>
+            </figure>
+          </section>
+
+          <section class="text-section">
+            <h3>Mesh Light</h3>
+            <p>Selecciona tu geometría > Arnold > Lights > Mesh Light. A diferencia del material emisivo, la Mesh Light
+              usa muestreo directo de luz, reduciendo drásticamente el ruido en el render.</p>
+          </section>
+
+          <section class="text-section">
+            <h3>Three-Point Lighting</h3>
+            <ul>
+              <li><strong>Key Light:</strong> Fuente principal, más potente. Colocada diagonalmente al sujeto.
+                (Generalmente una Area Light)</li>
+              <li><strong>Fill Light:</strong> Menos potente, en el lado opuesto a la Key. Suaviza las sombras oscuras
+                que deja la luz principal.</li>
+              <li><strong>Rim Light:</strong> Detrás del sujeto. Crea un borde brillante que lo separa del fondo, dando
+                volumen y profundidad.</li>
+            </ul>
+
+            <figure class="content-image">
+              <img src="./IMAGES/IMG_4.jpg"
+                alt="Attribute Editor de Area Light con parámetros Spread, Resolution y Roundness" loading="lazy">
+              <figcaption>Attribute Editor de Area Light con parámetros Spread, Resolution y Roundness</figcaption>
+            </figure>
+
+            <aside class="production-tip">
+              <span class="tip-icon">💡</span>
+              <div class="tip-content">
+                <h4>Tip de Producción</h4>
+                <p>El parámetro Spread de una Area Light funciona como un grid fotográfico: bajar de 1.0 a 0.5 concentra
+                  y enfoca la luz.</p>
+              </div>
+            </aside>
+
+            <aside class="production-tip">
+              <span class="tip-icon">💡</span>
+              <div class="tip-content">
+                <h4>Tip de Producción</h4>
+                <p>Para ajustar bien cada luz, oculta las demás temporalmente. Es imposible calibrar una Fill Light con
+                  la Key Light encendida.</p>
+              </div>
+            </aside>
+          </section>
+
+          <footer class="module-footer">
+            <button type="button" class="btn btn-accent btn-large" data-target="view-quiz-2">Realizar Quiz 2</button>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- MÓDULO 3 -->
+    <section id="view-module-3" class="view-section hidden">
+      <div class="module-layout">
+        <aside class="sidebar-nav">
+          <nav>
+            <h4>Contenido del Curso</h4>
+            <ul class="sidebar-links">
+              <li><button type="button" class="sidebar-btn" data-target="view-module-1">Módulo 1: Introducción</button>
+              </li>
+              <li><button type="button" class="sidebar-btn" data-target="view-module-2">Módulo 2: Control de
+                  Luces</button></li>
+              <li><button type="button" class="sidebar-btn active" data-target="view-module-3">Módulo 3:
+                  Optimización</button></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <article class="module-content">
+          <header class="module-header">
+            <h2>Módulo 3: Render Sampling y Optimización</h2>
+          </header>
+
+          <figure class="video-container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/E-SLS_niIzA"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </figure>
+
+          <section class="text-section">
+            <h3>¿Qué son los Samples?</h3>
+            <p>Arnold dispara rayos desde la cámara para recolectar información de luz y color. Menos samples = render
+              rápido con ruido. Más samples = imagen limpia, más tiempo. La clave no es subir todo al máximo, sino
+              atacar el tipo específico de ruido de tu escena.</p>
+          </section>
+
+          <section class="text-section">
+            <h3>Panel de Sampling (Render Settings > Arnold Renderer)</h3>
+            <ul>
+              <li><strong>Camera (AA):</strong> Multiplicador maestro. Controla el antialiasing y multiplica todos los
+                valores de abajo. Subirlo limpia toda la imagen pero dispara el tiempo.</li>
+              <li><strong>Diffuse:</strong> Limpia ruido en rebotes de luz indirecta y sombras suaves.</li>
+              <li><strong>Specular:</strong> Limpia ruido en brillos, reflejos metálicos y vidrios.</li>
+              <li><strong>Transmission:</strong> Para objetos translúcidos y refractivos (cristales, agua).</li>
+              <li><strong>SSS:</strong> Elimina ruido en materiales donde la luz penetra: piel, cera, mármol.</li>
+              <li><strong>Volume Indirect:</strong> Controla el ruido en volumétricas (humo, niebla, nubes).</li>
+            </ul>
+
+            <figure class="content-image">
+              <img src="./IMAGES/IMG_5.jpg"
+                alt="Panel Sampling en Arnold Renderer: Camera AA, Diffuse, Specular, Transmission, SSS y Volume Indirect"
+                loading="lazy">
+              <figcaption>Panel Sampling en Arnold Renderer: Camera AA, Diffuse, Specular, Transmission, SSS y Volume
+                Indirect</figcaption>
+            </figure>
+          </section>
+
+          <section class="text-section">
+            <h3>Valores recomendados</h3>
+            <ul>
+              <li><strong>LookDev / pruebas rápidas:</strong> Camera AA en 2–3, resto en 2.</li>
+              <li><strong>Render final (producción media):</strong> Camera AA en 4–5, Diffuse y Specular entre 2–4 según
+                materiales de la escena.</li>
+              <li><strong>Regla clave:</strong> si el ruido está solo en reflejos, sube Specular — no el Camera AA.</li>
+            </ul>
+          </section>
+
+          <section class="text-section">
+            <h3>Progressive Render</h3>
+            <p>Dibuja la imagen rápidamente en baja calidad y se va refinando en tiempo real. Fundamental para trabajar
+              con el IPR y ver cambios de luz sin esperar renders completos.</p>
+
+            <aside class="production-tip">
+              <span class="tip-icon">💡</span>
+              <div class="tip-content">
+                <h4>Tip de Producción</h4>
+                <p>Los samples se multiplican al cuadrado por el Camera AA. AA=3 + Diffuse=2 = 36 rayos por píxel. ¡Sube
+                  los valores de uno en uno!</p>
+              </div>
+            </aside>
+
+            <aside class="production-tip">
+              <span class="tip-icon">💡</span>
+              <div class="tip-content">
+                <h4>Tip de Producción</h4>
+                <p>Usa los AOVs (Render Passes) para diagnosticar el ruido. El pase direct_specular te dirá exactamente
+                  si debes subir el Specular o no.</p>
+              </div>
+            </aside>
+          </section>
+
+          <footer class="module-footer">
+            <button type="button" class="btn btn-accent btn-large" data-target="view-quiz-3">Realizar Quiz 3</button>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- QUIZ 1 -->
+    <section id="view-quiz-1" class="view-section hidden">
+      <div class="quiz-container">
+        <header class="quiz-header">
+          <h2>Quiz: Módulo 1</h2>
+          <div class="timer" aria-live="polite"><span class="timer-icon">⏱</span><span class="time-left">15:00</span>
+          </div>
+        </header>
+
+        <form class="quiz-form" id="quiz-form-1" data-quiz="1">
+          <div class="quiz-error-msg hidden" style="color: red; margin-bottom: 1rem;">Por favor responde todas las
+            preguntas correctamente.</div>
+
+          <fieldset class="quiz-question">
+            <legend>1. ¿Qué parámetro es más preciso para incrementar la fuerza de una luz en Arnold?</legend>
+            <label class="radio-option"><input type="radio" name="q1_1" value="A"><span class="radio-label">A)
+                Intensity</span></label>
+            <label class="radio-option"><input type="radio" name="q1_1" value="B"><span class="radio-label">B)
+                Color</span></label>
+            <label class="radio-option"><input type="radio" name="q1_1" value="C" data-correct="true"><span
+                class="radio-label">C) Exposure</span></label>
+            <label class="radio-option"><input type="radio" name="q1_1" value="D"><span class="radio-label">D)
+                Scale</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>2. ¿Qué tipo de luz convierte una geometría 3D en emisor?</legend>
+            <label class="radio-option"><input type="radio" name="q1_2" value="A"><span class="radio-label">A) Spot
+                Light</span></label>
+            <label class="radio-option"><input type="radio" name="q1_2" value="B" data-correct="true"><span
+                class="radio-label">B) Mesh Light</span></label>
+            <label class="radio-option"><input type="radio" name="q1_2" value="C"><span class="radio-label">C)
+                Skydome</span></label>
+            <label class="radio-option"><input type="radio" name="q1_2" value="D"><span class="radio-label">D) Point
+                Light</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>3. ¿Cuál es la función de la Directional Light?</legend>
+            <label class="radio-option"><input type="radio" name="q1_3" value="A"><span class="radio-label">A) Emitir
+                desde un punto pequeño</span></label>
+            <label class="radio-option"><input type="radio" name="q1_3" value="B" data-correct="true"><span
+                class="radio-label">B) Simular rayos paralelos como el sol</span></label>
+            <label class="radio-option"><input type="radio" name="q1_3" value="C"><span class="radio-label">C) Iluminar
+                solo interiores</span></label>
+            <label class="radio-option"><input type="radio" name="q1_3" value="D"><span class="radio-label">D) Crear
+                texturas de luz</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>4. ¿Qué temperatura de color produce luz cálida?</legend>
+            <label class="radio-option"><input type="radio" name="q1_4" value="A"><span class="radio-label">A) Blanca y
+                fría</span></label>
+            <label class="radio-option"><input type="radio" name="q1_4" value="B"><span class="radio-label">B) Azul
+                profundo</span></label>
+            <label class="radio-option"><input type="radio" name="q1_4" value="C" data-correct="true"><span
+                class="radio-label">C) 3200K</span></label>
+            <label class="radio-option"><input type="radio" name="q1_4" value="D"><span class="radio-label">D)
+                Roja</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>5. ¿Qué tipo de motor de render es Arnold?</legend>
+            <label class="radio-option"><input type="radio" name="q1_5" value="A"><span class="radio-label">A)
+                Rasterizado en tiempo real</span></label>
+            <label class="radio-option"><input type="radio" name="q1_5" value="B" data-correct="true"><span
+                class="radio-label">B) Ray tracing basado en físicas</span></label>
+            <label class="radio-option"><input type="radio" name="q1_5" value="C"><span class="radio-label">C)
+                Simulación de fluidos</span></label>
+            <label class="radio-option"><input type="radio" name="q1_5" value="D"><span class="radio-label">D) Solo
+                wireframes</span></label>
+          </fieldset>
+
+          <footer class="quiz-footer">
+            <p class="quiz-attempts">Intentos ilimitados</p>
+            <button type="submit" class="btn btn-primary btn-large">Evaluar</button>
+          </footer>
+        </form>
+      </div>
+    </section>
+
+    <!-- QUIZ 2 -->
+    <section id="view-quiz-2" class="view-section hidden">
+      <div class="quiz-container">
+        <header class="quiz-header">
+          <h2>Quiz: Módulo 2</h2>
+          <div class="timer" aria-live="polite"><span class="timer-icon">⏱</span><span class="time-left">15:00</span>
+          </div>
+        </header>
+
+        <form class="quiz-form" id="quiz-form-2" data-quiz="2">
+          <div class="quiz-error-msg hidden" style="color: red; margin-bottom: 1rem;">Por favor responde todas las
+            preguntas correctamente.</div>
+
+          <fieldset class="quiz-question">
+            <legend>1. ¿Para qué sirve la Fill Light en el esquema de 3 puntos?</legend>
+            <label class="radio-option"><input type="radio" name="q2_1" value="A"><span class="radio-label">A) Crear
+                destellos</span></label>
+            <label class="radio-option"><input type="radio" name="q2_1" value="B"><span class="radio-label">B) Separar
+                del fondo</span></label>
+            <label class="radio-option"><input type="radio" name="q2_1" value="C" data-correct="true"><span
+                class="radio-label">C) Suavizar sombras de la Key Light</span></label>
+            <label class="radio-option"><input type="radio" name="q2_1" value="D"><span class="radio-label">D)
+                Iluminación total</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>2. ¿Qué pasa al aumentar el tamaño de una Area Light?</legend>
+            <label class="radio-option"><input type="radio" name="q2_2" value="A"><span class="radio-label">A) Luz más
+                dura</span></label>
+            <label class="radio-option"><input type="radio" name="q2_2" value="B"><span class="radio-label">B) Cambia de
+                color</span></label>
+            <label class="radio-option"><input type="radio" name="q2_2" value="C" data-correct="true"><span
+                class="radio-label">C) Sombras más suaves</span></label>
+            <label class="radio-option"><input type="radio" name="q2_2" value="D"><span class="radio-label">D) Se
+                convierte en Point Light</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>3. ¿Dónde se conecta un mapa HDRI para iluminación de entorno?</legend>
+            <label class="radio-option"><input type="radio" name="q2_3" value="A"><span class="radio-label">A) En Point
+                Light</span></label>
+            <label class="radio-option"><input type="radio" name="q2_3" value="B"><span class="radio-label">B) En
+                Exposure de cámara</span></label>
+            <label class="radio-option"><input type="radio" name="q2_3" value="C" data-correct="true"><span
+                class="radio-label">C) En Color de Skydome Light</span></label>
+            <label class="radio-option"><input type="radio" name="q2_3" value="D"><span class="radio-label">D) En
+                Specular del modelo</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>4. ¿Qué luz perfila el contorno del objeto desde atrás?</legend>
+            <label class="radio-option"><input type="radio" name="q2_4" value="A" data-correct="true"><span
+                class="radio-label">A) Rim Light</span></label>
+            <label class="radio-option"><input type="radio" name="q2_4" value="B"><span class="radio-label">B) Key
+                Light</span></label>
+            <label class="radio-option"><input type="radio" name="q2_4" value="C"><span class="radio-label">C) Ambient
+                Light</span></label>
+            <label class="radio-option"><input type="radio" name="q2_4" value="D"><span class="radio-label">D) Fill
+                Light</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>5. ¿Para qué sirve el parámetro Spread en Area Light?</legend>
+            <label class="radio-option"><input type="radio" name="q2_5" value="A" data-correct="true"><span
+                class="radio-label">A) Enfocar o dispersar el ángulo de luz</span></label>
+            <label class="radio-option"><input type="radio" name="q2_5" value="B"><span class="radio-label">B) Cambiar
+                temperatura de color</span></label>
+            <label class="radio-option"><input type="radio" name="q2_5" value="C"><span class="radio-label">C)
+                Multiplicar fotones</span></label>
+            <label class="radio-option"><input type="radio" name="q2_5" value="D"><span class="radio-label">D) Crear
+                sombras de colores</span></label>
+          </fieldset>
+
+          <footer class="quiz-footer">
+            <p class="quiz-attempts">Intentos ilimitados</p>
+            <button type="submit" class="btn btn-primary btn-large">Evaluar</button>
+          </footer>
+        </form>
+      </div>
+    </section>
+
+    <!-- QUIZ 3 -->
+    <section id="view-quiz-3" class="view-section hidden">
+      <div class="quiz-container">
+        <header class="quiz-header">
+          <h2>Quiz: Módulo 3</h2>
+          <div class="timer" aria-live="polite"><span class="timer-icon">⏱</span><span class="time-left">15:00</span>
+          </div>
+        </header>
+
+        <form class="quiz-form" id="quiz-form-3" data-quiz="3">
+          <div class="quiz-error-msg hidden" style="color: red; margin-bottom: 1rem;">Por favor responde todas las
+            preguntas correctamente.</div>
+
+          <fieldset class="quiz-question">
+            <legend>1. ¿Qué parámetro subir si el ruido está en reflejos metálicos?</legend>
+            <label class="radio-option"><input type="radio" name="q3_1" value="A"><span class="radio-label">A)
+                SSS</span></label>
+            <label class="radio-option"><input type="radio" name="q3_1" value="B"><span class="radio-label">B)
+                Diffuse</span></label>
+            <label class="radio-option"><input type="radio" name="q3_1" value="C" data-correct="true"><span
+                class="radio-label">C) Specular</span></label>
+            <label class="radio-option"><input type="radio" name="q3_1" value="D"><span class="radio-label">D) Volume
+                Indirect</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>2. ¿Por qué no conviene subir Camera (AA) al máximo para todo?</legend>
+            <label class="radio-option"><input type="radio" name="q3_2" value="A"><span class="radio-label">A) Oscurece
+                la escena</span></label>
+            <label class="radio-option"><input type="radio" name="q3_2" value="B"><span class="radio-label">B) Invierte
+                colores</span></label>
+            <label class="radio-option"><input type="radio" name="q3_2" value="C" data-correct="true"><span
+                class="radio-label">C) Es multiplicador general que dispara los tiempos</span></label>
+            <label class="radio-option"><input type="radio" name="q3_2" value="D"><span class="radio-label">D) Elimina
+                texturas</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>3. ¿Qué materiales afecta el parámetro SSS?</legend>
+            <label class="radio-option"><input type="radio" name="q3_3" value="A"><span class="radio-label">A) Cristales
+                y agua</span></label>
+            <label class="radio-option"><input type="radio" name="q3_3" value="B"><span class="radio-label">B) Metales y
+                espejos</span></label>
+            <label class="radio-option"><input type="radio" name="q3_3" value="C" data-correct="true"><span
+                class="radio-label">C) Piel, cera y materiales que absorben luz</span></label>
+            <label class="radio-option"><input type="radio" name="q3_3" value="D"><span class="radio-label">D) Humo y
+                niebla</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>4. ¿Qué permite el Progressive Render en LookDev?</legend>
+            <label class="radio-option"><input type="radio" name="q3_4" value="A"><span class="radio-label">A) Guardar
+                en PDF</span></label>
+            <label class="radio-option"><input type="radio" name="q3_4" value="B" data-correct="true"><span
+                class="radio-label">B) Ver la imagen refinándose en tiempo real</span></label>
+            <label class="radio-option"><input type="radio" name="q3_4" value="C"><span class="radio-label">C) Rotar la
+                cámara automáticamente</span></label>
+            <label class="radio-option"><input type="radio" name="q3_4" value="D"><span class="radio-label">D) Apagar
+                luces automáticamente</span></label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>5. ¿Cuál es un valor estándar de Camera (AA) para producción media?</legend>
+            <label class="radio-option"><input type="radio" name="q3_5" value="A"><span class="radio-label">A)
+                12</span></label>
+            <label class="radio-option"><input type="radio" name="q3_5" value="B" data-correct="true"><span
+                class="radio-label">B) 3 o 4</span></label>
+            <label class="radio-option"><input type="radio" name="q3_5" value="C"><span class="radio-label">C)
+                0</span></label>
+            <label class="radio-option"><input type="radio" name="q3_5" value="D"><span class="radio-label">D)
+                20</span></label>
+          </fieldset>
+
+          <footer class="quiz-footer">
+            <p class="quiz-attempts">Intentos ilimitados</p>
+            <button type="submit" class="btn btn-primary btn-large">Evaluar</button>
+          </footer>
+        </form>
+      </div>
+    </section>
+
+    <!-- VIEW: PANTALLA FINAL -->
+    <section id="view-final" class="view-section hidden">
+      <div class="final-container">
+        <div class="celebration-icon">🎉</div>
+        <h2>¡Felicidades!</h2>
+        <p class="success-message">Has completado todos los módulos exitosamente.</p>
+
+        <article class="certificate-preview" id="certificate-print-area">
+          <div class="certificate-inner">
+            <h4>CONSTANCIA DE FINALIZACIÓN DE MÓDULOS</h4>
+            <p>Este documento certifica que el titular ha completado exitosamente la ruta de aprendizaje online y ha
+              aprobado todas las evaluaciones del curso técnico:</p>
+            <h3 style="margin: 1.5rem 0; color: var(--accent-blue); text-align: center;">"Iluminación en Maya 3D con
+              Arnold Renderer"</h3>
+
+            <p><strong>Conocimientos acreditados:</strong></p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+              <li>Fundamentos de Arnold Renderer y atributos fotográficos</li>
+              <li>Esquemas de iluminación y configuraciones de entorno (Three-Point Light y HDRI)</li>
+              <li>Optimización de render y diagnóstico de Sampling</li>
+            </ul>
+
+            <div
+              style="display: flex; justify-content: space-between; margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+              <div>
+                <p><strong>Estudiante:</strong> ____________________</p>
+                <p><strong>Fecha:</strong> ____________________</p>
+              </div>
+              <div style="text-align: right;">
+                <p>____________________</p>
+                <p><strong>Firma del Instructor</strong></p>
+              </div>
+            </div>
+
+            <div class="seal">Aprobado</div>
+          </div>
+        </article>
+
+        <div class="final-actions">
+          <button type="button" class="btn btn-secondary" data-target="view-home">Volver a la Ruta</button>
+          <button type="button" class="btn btn-primary" onclick="window.print()">Imprimir / Guardar como PDF</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
