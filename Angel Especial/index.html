@@ -1,0 +1,2382 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Special Tequila | Orgullo de Los Altos de Jalisco</title>
+
+  <!-- Meta tags de SEO y Optimización -->
+  <meta name="description"
+    content="Descubre Angel Special Tequila Blanco, 100% Agave Azul de Arandas, Jalisco. Tradición artesanal, sabor puro con notas cítricas e herbales. Un tequila premium excepcional.">
+  <meta name="keywords"
+    content="Tequila Blanco, Angel Special, Tequila Artesanal, Arandas Jalisco, Los Altos, Bebida Premium, 100% Agave">
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Angel Special Tequila | Orgullo de Los Altos de Jalisco">
+  <meta property="og:description"
+    content="Sabor artesanal nacido de la tierra roja de Arandas. Con tragos y amores, los momentos son mejores.">
+  <meta property="og:image" content="IMAGES/Botella en el agave.jpeg">
+  <meta property="og:url" content="https://www.angelspecial.com.mx">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ----------------------------------------------------
+       SISTEMA DE DISEÑO & VARIABLES (:root)
+       ---------------------------------------------------- */
+    :root {
+      /* Paleta de Colores Exclusiva */
+      --color-ivory: #F9F6EE;
+      /* Fondo principal — marfil cálido */
+      --color-dark: #2C1F14;
+      /* Textos y contrastes — marrón casi negro */
+      --color-gold: #C5A059;
+      /* Acentos primarios — oro envejecido */
+      --color-gold-lt: #E8D5A3;
+      /* Oro claro — fondos secundarios y bordes */
+      --color-cobalt: #2D5D93;
+      /* CTA principal — azul cobalto */
+      --color-agave: #6B7B5E;
+      /* Acento terciario — verde agave */
+      --color-terra: #8B4B2A;
+      /* Detalle cálido — tierra roja de Arandas */
+
+      /* Tipografía */
+      --font-display: 'Cormorant Garamond', serif;
+      --font-sans: 'Montserrat', sans-serif;
+
+      /* Animaciones y Transiciones */
+      --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-medium: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition-fast: all 0.25s ease;
+
+      /* Ancho de Contenedor */
+      --max-width: 1400px;
+    }
+
+    /* Reset & Estilos Base */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--color-ivory);
+      color: var(--color-dark);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Textura de Papel de Lujo Sutil Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* Ocultar cursor nativo en dispositivos con puntero fino para usar el cursor premium */
+    @media (pointer: fine) {
+
+      body,
+      a,
+      button,
+      select,
+      input,
+      textarea {
+        cursor: none !important;
+      }
+    }
+
+    /* ----------------------------------------------------
+       CURSOR PREMIUM PERSONALIZADO (Solo Desktop)
+       ---------------------------------------------------- */
+    .custom-cursor {
+      display: none;
+    }
+
+    @media (pointer: fine) {
+      .custom-cursor {
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-gold);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 10001;
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+      }
+
+      .custom-cursor-follower {
+        display: block;
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--color-gold-lt);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.08s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s, height 0.3s, border-color 0.3s;
+      }
+
+      /* Hover States */
+      body.hover-link .custom-cursor {
+        width: 14px;
+        height: 14px;
+        background-color: var(--color-dark);
+      }
+
+      body.hover-link .custom-cursor-follower {
+        width: 52px;
+        height: 52px;
+        border-color: var(--color-gold);
+        background-color: rgba(197, 160, 89, 0.08);
+      }
+
+      body.hover-cobalt .custom-cursor {
+        background-color: var(--color-cobalt);
+        width: 12px;
+        height: 12px;
+      }
+
+      body.hover-cobalt .custom-cursor-follower {
+        border-color: var(--color-cobalt);
+        background-color: rgba(45, 93, 147, 0.06);
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    /* ----------------------------------------------------
+       ELEMENTOS ESTRUCTURALES Y UTILIDADES
+       ---------------------------------------------------- */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+
+    section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    /* Separadores Ornamentales */
+    .ornament-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px 0;
+      position: relative;
+      width: 100%;
+    }
+
+    .ornament-separator::before,
+    .ornament-separator::after {
+      content: "";
+      height: 1px;
+      background-color: var(--color-gold-lt);
+      flex-grow: 1;
+    }
+
+    .ornament-separator::before {
+      margin-right: 24px;
+    }
+
+    .ornament-separator::after {
+      margin-left: 24px;
+    }
+
+    .ornament-diamond {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--color-gold);
+      user-select: none;
+      letter-spacing: 0.15em;
+    }
+
+    /* Tipografía Global */
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-editorial {
+      font-family: var(--font-display);
+      font-weight: 400;
+      color: var(--color-dark);
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--color-gold);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* Botones y CTAs */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      padding: 18px 40px;
+      transition: var(--transition-medium);
+      position: relative;
+      z-index: 1;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--color-cobalt);
+      color: var(--color-ivory);
+      box-shadow: 0 4px 15px rgba(45, 93, 147, 0.15);
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-dark);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 8px 25px rgba(45, 93, 147, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-gold);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-gold-lt);
+      font-size: 0.8rem;
+      transition: var(--transition-medium);
+    }
+
+    .btn-secondary span {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      margin-left: 6px;
+    }
+
+    .btn-secondary:hover {
+      color: var(--color-dark);
+      border-bottom-color: var(--color-dark);
+    }
+
+    .btn-secondary:hover span {
+      transform: translateX(6px);
+    }
+
+    /* ----------------------------------------------------
+       [ 1 ] NAV / HEADER
+       ---------------------------------------------------- */
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition-medium);
+      padding: 30px 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .header-nav.scrolled {
+      background-color: var(--color-ivory);
+      padding: 18px 0;
+      border-bottom: 1px solid var(--color-gold-lt);
+      box-shadow: 0 4px 20px rgba(44, 31, 20, 0.03);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 24px;
+      }
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--color-dark);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo span.sublogo {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      color: var(--color-gold);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--color-dark);
+      text-decoration: none;
+      position: relative;
+      padding: 8px 0;
+      transition: var(--transition-fast);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-link:hover {
+      color: var(--color-gold);
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Menú Hamburguesa Minimalista (Mobile) */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      z-index: 1100;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-dark);
+      position: absolute;
+      transition: var(--transition-medium);
+    }
+
+    .menu-toggle span:nth-child(1) {
+      top: 0;
+    }
+
+    .menu-toggle span:nth-child(2) {
+      top: 9px;
+    }
+
+    .menu-toggle span:nth-child(3) {
+      top: 18px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+      background-color: var(--color-ivory);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+      background-color: var(--color-ivory);
+    }
+
+    /* Cajón de Menú Móvil */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--color-dark);
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 40px;
+    }
+
+    .mobile-drawer.active {
+      right: 0;
+    }
+
+    .mobile-menu {
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .mobile-link {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--color-ivory);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: var(--transition-fast);
+      display: block;
+    }
+
+    .mobile-link:hover {
+      color: var(--color-gold);
+      transform: translateY(-5px);
+    }
+
+    .mobile-drawer-footer {
+      text-align: center;
+      color: var(--color-gold-lt);
+    }
+
+    .mobile-drawer-footer p {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .mobile-drawer-socials {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .mobile-drawer-socials a {
+      color: var(--color-ivory);
+      transition: var(--transition-fast);
+    }
+
+    .mobile-drawer-socials a:hover {
+      color: var(--color-gold);
+    }
+
+    @media (max-width: 1024px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .nav-actions {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* ----------------------------------------------------
+       [ 2 ] HERO SECTION
+       ---------------------------------------------------- */
+    .hero {
+      height: 100vh;
+      min-height: 750px;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--color-gold-lt);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 4.5fr 7.5fr;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      gap: 60px;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      z-index: 10;
+      padding-top: 80px;
+    }
+
+    .hero-title {
+      font-size: 5.5rem;
+      line-height: 0.95;
+      margin-bottom: 30px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Animación de Título Palabra por Palabra */
+    .word-wrapper {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      margin-right: 0.15em;
+    }
+
+    .word-anim {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero.ready-to-animate .word-anim {
+      transform: translateY(0);
+    }
+
+    .hero.ready-to-animate .word-anim.word-1 {
+      transition-delay: 0.1s;
+    }
+
+    .hero.ready-to-animate .word-anim.word-2 {
+      transition-delay: 0.25s;
+    }
+
+    .hero-slogan {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-dark);
+      margin-bottom: 45px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+    }
+
+    .hero.ready-to-animate .hero-slogan {
+      opacity: 0.85;
+      transform: translateY(0);
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s;
+    }
+
+    .hero.ready-to-animate .hero-ctas {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero Image Area (Asymmetric right column) */
+    .hero-visual {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 100px;
+    }
+
+    .hero-frame-container {
+      width: 85%;
+      height: 85%;
+      position: relative;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    /* Arched Editorial Frame */
+    .hero-arched-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 400px 400px 0 0;
+      border: 1px solid var(--color-gold);
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+      background-color: transparent;
+      box-shadow: 0 20px 50px rgba(44, 31, 20, 0.05);
+      transition: var(--transition-smooth);
+    }
+
+    .hero-arched-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 388px 388px 0 0;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #eae5d9 0%, #dbd4c3 100%);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+
+    /* Sello Circular Giratorio Decorativo */
+    .luxury-seal {
+      position: absolute;
+      bottom: 12%;
+      left: -8%;
+      width: 130px;
+      height: 130px;
+      z-index: 15;
+      background-color: var(--color-dark);
+      color: var(--color-gold-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 1px dashed var(--color-gold);
+      transform: rotate(0deg);
+      transition: var(--transition-smooth);
+    }
+
+    .luxury-seal svg {
+      width: 80%;
+      height: 80%;
+      animation: rotateSeal 20s linear infinite;
+    }
+
+    @keyframes rotateSeal {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .luxury-seal-caption {
+      position: absolute;
+      bottom: -40px;
+      right: 40px;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      opacity: 0.8;
+    }
+
+    /* Mobile Responsive para Hero */
+    @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 4.5rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero {
+        height: auto;
+        padding-top: 140px;
+        padding-bottom: 80px;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero-content {
+        padding-top: 0;
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero-visual {
+        padding-top: 0;
+        height: 600px;
+      }
+
+      .hero-frame-container {
+        width: 75%;
+        height: 100%;
+      }
+
+      .luxury-seal {
+        bottom: 5%;
+        left: -4%;
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .hero-slogan {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+      }
+
+      .hero-visual {
+        height: 480px;
+      }
+
+      .hero-frame-container {
+        width: 90%;
+      }
+    }
+
+    /* ----------------------------------------------------
+       [ 3 ] STATEMENT / CITA DE MARCA
+       ---------------------------------------------------- */
+    .statement-section {
+      background-color: var(--color-ivory);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .statement-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .statement-quote {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--color-dark);
+      line-height: 1.35;
+      margin: 40px 0;
+    }
+
+    @media (max-width: 768px) {
+      .statement-quote {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* ----------------------------------------------------
+       [ 4 ] EL PRODUCTO
+       ---------------------------------------------------- */
+    .product-section {
+      background-color: var(--color-ivory);
+      border-top: 1px solid var(--color-gold-lt);
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 5.5fr 6.5fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .product-info {
+      z-index: 10;
+    }
+
+    .product-title {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .product-desc {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--color-dark);
+      margin-bottom: 45px;
+      opacity: 0.9;
+    }
+
+    /* Grid de Características */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .spec-card {
+      background-color: transparent;
+      border: 1px solid var(--color-gold-lt);
+      padding: 30px;
+      transition: var(--transition-medium);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spec-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .spec-card:hover {
+      background-color: #fff;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(44, 31, 20, 0.04);
+      border-color: var(--color-gold);
+    }
+
+    .spec-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .spec-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 20px;
+      color: var(--color-gold);
+    }
+
+    .spec-card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+
+    .spec-card p {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--color-dark);
+      opacity: 0.8;
+    }
+
+    /* Imagen del Producto en Lado Derecho */
+    .product-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Offset Frame Aesthetic */
+    .product-offset-frame {
+      position: relative;
+      width: 80%;
+      aspect-ratio: 4 / 5;
+    }
+
+    .product-offset-border {
+      position: absolute;
+      top: 30px;
+      left: -30px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--color-gold);
+      z-index: 1;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 2;
+      box-shadow: 0 30px 60px rgba(44, 31, 20, 0.08);
+      background-color: var(--color-gold-lt);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transition: transform 0.8s ease;
+    }
+
+    .product-offset-frame:hover .product-image {
+      transform: scale(1.2);
+    }
+
+    .product-offset-frame:hover .product-offset-border {
+      top: 15px;
+      left: -15px;
+    }
+
+    @media (max-width: 1024px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .product-visual {
+        order: -1;
+      }
+
+      .product-offset-frame {
+        width: 65%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .product-title {
+        font-size: 3.2rem;
+      }
+
+      .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .product-offset-frame {
+        width: 85%;
+      }
+    }
+
+    /* ----------------------------------------------------
+       [ 5 ] NUESTRA HISTORIA / ORIGEN
+       ---------------------------------------------------- */
+    .history-section {
+      background-color: var(--color-gold-lt);
+      border-top: 1px solid var(--color-gold);
+      border-bottom: 1px solid var(--color-gold);
+      overflow: hidden;
+    }
+
+    /* Textura de grano extra en esta sección para dar sensación terrosa */
+    .history-section::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    .history-layout {
+      display: grid;
+      grid-template-columns: 6fr 6fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .history-visual {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    /* Elegante marco editorial en arco invertido o silueta moderna */
+    .history-frame {
+      width: 90%;
+      aspect-ratio: 3 / 4;
+      border-radius: 0 0 300px 300px;
+      border: 1px solid var(--color-gold);
+      padding: 10px;
+      background-color: transparent;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.05);
+    }
+
+    .history-frame-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 0 0 290px 290px;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--color-dark);
+    }
+
+    .history-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .history-frame:hover .history-image {
+      transform: scale(1.05);
+    }
+
+    .history-info {
+      padding-right: 40px;
+    }
+
+    .history-title {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .history-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-terra);
+      margin-bottom: 35px;
+    }
+
+    .history-text {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-dark);
+      margin-bottom: 45px;
+    }
+
+    .history-text p {
+      margin-bottom: 20px;
+    }
+
+    /* Bloque Estadístico Exclusivo */
+    .stat-callout {
+      border-left: 2px solid var(--color-gold);
+      padding-left: 30px;
+      margin-top: 40px;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--color-dark);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    @media (max-width: 1024px) {
+      .history-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .history-visual {
+        justify-content: center;
+      }
+
+      .history-frame {
+        width: 70%;
+      }
+
+      .history-info {
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .history-title {
+        font-size: 3.2rem;
+      }
+
+      .history-frame {
+        width: 90%;
+      }
+    }
+
+    /* ----------------------------------------------------
+       [ 6 ] GALERÍA / AMBIENTE
+       ---------------------------------------------------- */
+    .gallery-section {
+      background-color: var(--color-ivory);
+      border-bottom: 1px solid var(--color-gold-lt);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+      position: relative;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--color-gold-lt);
+      padding: 10px;
+      background-color: transparent;
+      box-shadow: 0 15px 40px rgba(44, 31, 20, 0.03);
+      transition: var(--transition-medium);
+    }
+
+    .gallery-item-inner {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--color-dark);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-5px);
+      box-shadow: 0 25px 50px rgba(44, 31, 20, 0.08);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.06);
+    }
+
+    /* Distribución Editorial de la Galería Asimétrica */
+    .gallery-item-1 {
+      grid-column: span 7;
+      aspect-ratio: 16 / 10;
+    }
+
+    .gallery-item-2 {
+      grid-column: span 5;
+      aspect-ratio: 10 / 12;
+    }
+
+    .gallery-item-3 {
+      grid-column: span 5;
+      aspect-ratio: 10 / 12;
+      margin-top: -80px;
+      /* Offset editorial de altura */
+    }
+
+    .gallery-item-4 {
+      grid-column: span 7;
+      aspect-ratio: 16 / 10;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-item-3 {
+        margin-top: 0;
+      }
+
+      .gallery-item-4 {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .gallery-item {
+        grid-column: span 12 !important;
+        aspect-ratio: 4 / 3 !important;
+      }
+    }
+
+    /* ----------------------------------------------------
+       [ 7 ] CONTACTO / FOOTER
+       ---------------------------------------------------- */
+    footer {
+      background-color: var(--color-dark);
+      color: var(--color-ivory);
+      padding: 100px 0 40px 0;
+      border-top: 2px solid var(--color-gold);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 4fr 2fr 3fr 3fr;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+
+    .footer-col h3 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-gold);
+      margin-bottom: 30px;
+    }
+
+    .footer-col p {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--color-ivory);
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    .footer-logo-area .footer-brand {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--color-ivory);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .footer-logo-area .footer-brand span {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      color: var(--color-gold);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-links-list a {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--color-ivory);
+      opacity: 0.7;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .footer-links-list a:hover {
+      opacity: 1;
+      color: var(--color-gold);
+      padding-left: 6px;
+    }
+
+    /* Info de contacto */
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--color-gold-lt);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-text {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--color-ivory);
+      opacity: 0.8;
+    }
+
+    .contact-text a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .contact-text a:hover {
+      color: var(--color-gold);
+    }
+
+    /* Redes Sociales y Newsletter */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .social-icon-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(232, 213, 163, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-ivory);
+      transition: var(--transition-medium);
+      text-decoration: none;
+    }
+
+    .social-icon-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .social-icon-btn:hover {
+      border-color: var(--color-gold);
+      background-color: var(--color-gold);
+      color: var(--color-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Separador Final */
+    .footer-bottom-separator {
+      border-top: 1px solid rgba(197, 160, 89, 0.15);
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-logo-mark {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--color-gold);
+      margin-bottom: 25px;
+      opacity: 0.85;
+      letter-spacing: 0.15em;
+    }
+
+    .legal-notice {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      line-height: 2;
+      text-transform: uppercase;
+      color: var(--color-gold-lt);
+      opacity: 0.7;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .copyright {
+      font-size: 0.7rem;
+      margin-top: 20px;
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 1200px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 80px 0 40px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-col h3 {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* ----------------------------------------------------
+       SCROLL ANIMATIONS (Intersection Observer)
+       ---------------------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.15s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.45s;
+    }
+
+    /* ----------------------------------------------------
+       [ VIDEO SHOWCASE ] SECCIÓN DE VIDEO BOTELLA
+       ---------------------------------------------------- */
+    /* Sección contenedora */
+    .video-showcase {
+      padding: 60px 40px;
+      background-color: var(--color-ivory);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Wrapper del frame editorial (controla el tamaño y la posición del marco) */
+    .video-showcase-frame {
+      position: relative;
+      width: 78%;
+      max-width: 1300px;
+    }
+
+    /* Borde dorado offset — igual al estilo de las imágenes del producto */
+    .video-showcase-border-offset {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--color-gold);
+      z-index: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+
+    /* Esquinas decorativas en "L" (líneas cuadradas premium) */
+    .video-corner {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .video-corner-tl {
+      top: -10px;
+      left: -10px;
+      border-top: 1.5px solid var(--color-gold);
+      border-left: 1.5px solid var(--color-gold);
+    }
+
+    .video-corner-tr {
+      top: -10px;
+      right: -10px;
+      border-top: 1.5px solid var(--color-gold);
+      border-right: 1.5px solid var(--color-gold);
+    }
+
+    .video-corner-bl {
+      bottom: -10px;
+      left: -10px;
+      border-bottom: 1.5px solid var(--color-gold);
+      border-left: 1.5px solid var(--color-gold);
+    }
+
+    .video-corner-br {
+      bottom: -10px;
+      right: -10px;
+      border-bottom: 1.5px solid var(--color-gold);
+      border-right: 1.5px solid var(--color-gold);
+    }
+
+    /* Contenedor del video: rectangular con borde dorado */
+    .video-showcase-inner {
+      position: relative;
+      width: 100%;
+      height: 82vh;
+      min-height: 520px;
+      max-height: 1000px;
+      border-radius: 0;
+      border: 1px solid var(--color-gold);
+      overflow: hidden;
+      z-index: 1;
+      box-shadow:
+        0 8px 40px 8px rgba(0, 0, 0, 0.15),
+        0 20px 60px 5px rgba(0, 0, 0, 0.10);
+    }
+
+    /* El overlay desactivado */
+    .video-showcase-overlay {
+      display: none;
+    }
+
+    /* El video: ocupa todo el marco */
+    .video-showcase-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+      border-radius: 0;
+    }
+
+    /* Etiqueta superpuesta */
+    .video-showcase-label {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      transform: translateX(-50%) translateY(30px);
+    }
+
+    .video-showcase-label.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .video-showcase-label .label-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: var(--color-gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .video-showcase-label .label-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-ivory);
+      line-height: 1.2;
+      white-space: nowrap;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .video-showcase {
+        padding: 50px 20px;
+      }
+
+      .video-showcase-frame {
+        width: 94%;
+      }
+
+      .video-showcase-inner {
+        height: 72vh;
+        min-height: 400px;
+      }
+
+      .video-showcase-video {
+        border-radius: 0;
+      }
+
+      .video-showcase-label .label-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* Animación de entrada/salida al scroll */
+    .video-showcase {
+      opacity: 0;
+      transform: scale(0.97);
+      transition:
+        opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .video-showcase.in-view {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .video-showcase.out-of-view {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Cursor Premium Personalizado -->
+  <div class="custom-cursor" id="js-custom-cursor"></div>
+  <div class="custom-cursor-follower" id="js-custom-cursor-follower"></div>
+
+  <!-- [ 1 ] NAV / HEADER -->
+  <header class="header-nav" id="js-header-nav">
+    <div class="nav-container">
+      <a href="#" class="logo js-hover-target" aria-label="Volver al inicio">
+        ANGEL SPECIAL
+        <span class="sublogo">Tequila Blanco</span>
+      </a>
+
+      <nav role="navigation" aria-label="Menú principal">
+        <ul class="nav-menu">
+          <li><a href="#historia" class="nav-link js-hover-target">Nuestra Historia</a></li>
+          <li><a href="#producto" class="nav-link js-hover-target">El Producto</a></li>
+          <li><a href="#origen" class="nav-link js-hover-target">Origen</a></li>
+          <li><a href="#contacto" class="nav-link js-hover-target">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contacto" class="btn btn-secondary js-hover-target">Adquirir<span>→</span></a>
+      </div>
+
+      <button class="menu-toggle js-hover-target" id="js-menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="js-mobile-drawer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Cajón de Menú Móvil -->
+  <div class="mobile-drawer" id="js-mobile-drawer">
+    <ul class="mobile-menu">
+      <li><a href="#historia" class="mobile-link js-hover-target">Nuestra Historia</a></li>
+      <li><a href="#producto" class="mobile-link js-hover-target">El Producto</a></li>
+      <li><a href="#origen" class="mobile-link js-hover-target">Origen</a></li>
+      <li><a href="#contacto" class="mobile-link js-hover-target">Contacto</a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <p>Síguenos en nuestras redes</p>
+      <div class="mobile-drawer-socials">
+        <a href="#" class="js-hover-target" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="#" class="js-hover-target" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- [ 2 ] HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="container" style="height: 100%;">
+        <div class="hero-layout">
+          <!-- Text Area -->
+          <div class="hero-content">
+            <span class="eyebrow">Los Altos de Jalisco, México</span>
+
+            <h1 class="hero-title" id="js-hero-title">
+              <span class="word-wrapper"><span class="word-anim word-1">Angel</span></span><br>
+              <span class="word-wrapper"><span class="word-anim word-2">Special</span></span>
+            </h1>
+
+            <p class="hero-slogan" id="js-hero-slogan">
+              "CON TRAGOS Y AMORES,<br>LOS MOMENTOS SON MEJORES"
+            </p>
+
+            <div class="hero-ctas" id="js-hero-ctas">
+              <a href="#producto" class="btn btn-primary js-hover-cobalt">Descubre el Tequila</a>
+              <a href="#historia" class="btn btn-secondary js-hover-target">Nuestra Historia <span>→</span></a>
+            </div>
+          </div>
+
+          <!-- Asymmetric Visual Area -->
+          <div class="hero-visual" id="js-hero-visual">
+            <div class="hero-frame-container" id="js-parallax-container">
+
+              <!-- Sello de Lujo Rotativo -->
+              <div class="luxury-seal">
+                <svg viewBox="0 0 100 100">
+                  <path id="seal-text-path" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none">
+                  </path>
+                  <text font-family="'Montserrat', sans-serif" font-size="7.5" font-weight="600"
+                    fill="var(--color-gold-lt)" letter-spacing="2">
+                    <textPath href="#seal-text-path" startOffset="0%">
+                      • ANGEL SPECIAL TEQUILA • 100% AGAVE AZUL •
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
+
+              <!-- Arched editorial Frame -->
+              <div class="hero-arched-frame" id="js-parallax-frame">
+                <div class="hero-arched-inner">
+                  <!-- Fallback: dynamic high-end CSS background if image fails -->
+                  <img src="IMAGES/Botella en el agave.jpeg"
+                    alt="Botella de Angel Special Tequila en los majestuosos campos de agave azul de Arandas, Jalisco"
+                    class="hero-image" loading="eager">
+                </div>
+              </div>
+
+              <span class="luxury-seal-caption">Colección Artesanal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ VIDEO ] BOTELLA CAL — SHOWCASE -->
+    <section class="video-showcase" id="js-video-showcase">
+      <!-- Frame editorial: borde dorado + esquinas decorativas -->
+      <div class="video-showcase-frame">
+
+        <!-- Borde dorado offset (igual que en las imágenes del producto) -->
+        <div class="video-showcase-border-offset"></div>
+
+        <!-- Esquinas decorativas en "L" -->
+        <div class="video-corner video-corner-tl"></div>
+        <div class="video-corner video-corner-tr"></div>
+        <div class="video-corner video-corner-bl"></div>
+        <div class="video-corner video-corner-br"></div>
+
+        <!-- Contenedor con borde dorado + video -->
+        <div class="video-showcase-inner">
+          <div class="video-showcase-overlay"></div>
+
+          <video class="video-showcase-video" id="js-showcase-video" src="VIDEOS/Botella Cal(1).mp4" autoplay muted loop
+            playsinline preload="auto" aria-label="Video de la botella Angel Special Tequila"></video>
+
+          <!-- Etiqueta superpuesta -->
+          <div class="video-showcase-label" id="js-video-label">
+            <span class="label-eyebrow">Pureza en cada gota</span>
+            <span class="label-title">Angel Special Tequila Blanco</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- [ 3 ] STATEMENT / CITA DE MARCA -->
+    <section class="statement-section">
+      <div class="container">
+        <div class="statement-content reveal">
+          <div class="ornament-separator">
+            <span class="ornament-diamond">✦</span>
+          </div>
+
+          <blockquote class="statement-quote">
+            "Cada botella nace de la tierra roja de Arandas y del trabajo de manos que conocen el agave desde sus
+            raíces."
+          </blockquote>
+
+          <div class="ornament-separator">
+            <span class="ornament-diamond">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ 4 ] EL PRODUCTO -->
+    <section class="product-section" id="producto">
+      <div class="container">
+        <div class="product-layout">
+          <!-- Text Info left -->
+          <div class="product-info reveal">
+            <span class="eyebrow">Destilado Supremo</span>
+            <h2 class="product-title">Angel Special Blanco</h2>
+
+            <p class="product-desc">
+              Cristalino y puro como el cielo de los altos. En nariz, notas frescas de agave cocido con un toque herbal
+              y cítrico. En boca, su entrada es suave con una textura sedosa que revela el dulzor natural del agave. El
+              final es largo, limpio, con reminiscencias a tierra húmeda y pimienta blanca. Un tequila blanco diseñado
+              para apreciarse solo o como base perfecta de cocktails de autor.
+            </p>
+
+            <!-- Grid de Características -->
+            <div class="specs-grid">
+              <!-- Card 1 -->
+              <div class="spec-card reveal reveal-delay-1">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <h3>100% Agave</h3>
+                <p>Agave Tequilana Weber Variedad Azul seleccionado a mano.</p>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="spec-card reveal reveal-delay-2">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                <h3>38% Alc. Vol.</h3>
+                <p>El balance perfecto para apreciar su pureza y carácter floral.</p>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="spec-card reveal reveal-delay-1">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                  </path>
+                </svg>
+                <h3>750 ml</h3>
+                <p>Presentación icónica elegante con vidrio soplado artesanal.</p>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="spec-card reveal reveal-delay-2">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"></path>
+                </svg>
+                <h3>Hecho en México</h3>
+                <p>Orgullosamente producido y envasado en origen, Arandas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Right Column -->
+          <div class="product-visual reveal reveal-delay-2">
+            <div class="product-offset-frame">
+              <div class="product-offset-border"></div>
+              <div class="product-image-container">
+                <img src="IMAGES/Botella en el barril .jpeg"
+                  alt="Elegante presentación de Angel Special Tequila reposando junto a las selectas barricas de roble de Arandas"
+                  class="product-image" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ 5 ] NUESTRA HISTORIA / ORIGEN -->
+    <section class="history-section" id="historia">
+      <div class="container">
+        <div class="history-layout">
+          <!-- Image left -->
+          <div class="history-visual reveal">
+            <div class="history-frame">
+              <div class="history-frame-inner">
+                <img src="IMAGES/Botella sostenida con la mano.jpeg"
+                  alt="Jimador sosteniendo con orgullo la botella de Angel Special Tequila, reflejando el carácter puramente humano de nuestra destilería"
+                  class="history-image" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Text right -->
+          <div class="history-info reveal reveal-delay-1">
+            <span class="eyebrow" id="origen">El Alma del Terruño</span>
+            <h2 class="history-title">Nacidos en Los Altos</h2>
+            <h3 class="history-subtitle">Arandas, Jalisco — Capital Mundial del Tequila</h3>
+
+            <div class="history-text">
+              <p>
+                Angel Special Tequila no se fabrica, se cultiva. Nuestra historia comienza en los majestuosos campos de
+                Arandas, Jalisco, una tierra caracterizada por su suelo arcilloso rojo, rico en hierro y nutrientes. Es
+                aquí, a más de 2,000 metros de altitud, donde el agave azul crece lentamente durante más de siete años,
+                absorbiendo la esencia del sol de Los Altos y el agua pura de lluvia.
+              </p>
+              <p>
+                Cada una de nuestras botellas es el resultado de un compromiso inquebrantable con la tradición. Nuestros
+                jimadores cosechan únicamente piñas en su punto exacto de madurez. Posteriormente, son cocidas en hornos
+                tradicionales de mampostería y destiladas de manera pausada en alambiques de cobre, asegurando la
+                riqueza aromática que define a nuestra marca.
+              </p>
+            </div>
+
+            <!-- Bloque Estadístico -->
+            <div class="stat-callout reveal reveal-delay-2">
+              <div class="stat-number">+200</div>
+              <div class="stat-label">Años de tradición tequilera en Los Altos de Jalisco</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ 6 ] GALERÍA / AMBIENTE -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-grid">
+          <!-- Item 1 (Grande) -->
+          <div class="gallery-item gallery-item-1 reveal">
+            <div class="gallery-item-inner">
+              <img src="IMAGES/Botella en el agave.jpeg"
+                alt="Los majestuosos surcos de agaves azules extendiéndose bajo el sol de Arandas, origen de Angel Special"
+                class="gallery-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="gallery-item gallery-item-2 reveal reveal-delay-1">
+            <div class="gallery-item-inner">
+              <img src="IMAGES/Botella en el barril .jpeg"
+                alt="La mística atmósfera de nuestra bodega de añejamiento en roble blanco" class="gallery-img"
+                loading="lazy">
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="gallery-item gallery-item-3 reveal">
+            <div class="gallery-item-inner">
+              <img src="IMAGES/Botella sostenida con la mano.jpeg"
+                alt="Detalle de la jimación del agave azul seleccionada meticulosamente en el campo" class="gallery-img"
+                loading="lazy">
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="gallery-item gallery-item-4 reveal reveal-delay-1">
+            <div class="gallery-item-inner">
+              <img src="IMAGES/Botella en el agave.jpeg"
+                alt="El destilado fluyendo cristalino, reflejo del proceso de triple destilación artesanal"
+                class="gallery-img" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- [ 7 ] CONTACTO / FOOTER -->
+  <footer id="contacto">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Logo & Statement -->
+        <div class="footer-col footer-logo-area">
+          <a href="#" class="footer-brand js-hover-target">
+            ANGEL SPECIAL
+            <span>Tequila Blanco</span>
+          </a>
+          <p style="margin-top: 15px;">
+            "CON TRAGOS Y AMORES, LOS MOMENTOS SON MEJORES"<br>
+            Una creación artesanal inspirada en el terruño único de Arandas, Jalisco.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="footer-col">
+          <h3>Navegación</h3>
+          <ul class="footer-links-list">
+            <li><a href="#historia" class="js-hover-target">Nuestra Historia</a></li>
+            <li><a href="#producto" class="js-hover-target">El Producto</a></li>
+            <li><a href="#origen" class="js-hover-target">El Origen</a></li>
+            <li><a href="#contacto" class="js-hover-target">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact Info -->
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <div class="contact-details">
+            <!-- Dirección -->
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span class="contact-text">Arandas, Jalisco, México</span>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+              <span class="contact-text"><a href="tel:+520000000000" class="js-hover-target">+52 (000)
+                  000-0000</a></span>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span class="contact-text"><a href="mailto:contacto@angelspecial.com.mx"
+                  class="js-hover-target">contacto@angelspecial.com.mx</a></span>
+            </div>
+
+            <!-- Web -->
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+              <span class="contact-text"><a href="http://www.angelspecial.com.mx" target="_blank"
+                  class="js-hover-target">www.angelspecial.com.mx</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 4: Redes & Legal breve -->
+        <div class="footer-col">
+          <h3>Síguenos</h3>
+          <p>Únete a nuestro lifestyle premium de tragos y amores.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon-btn js-hover-target" aria-label="Instagram de Angel Special Tequila">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-icon-btn js-hover-target" aria-label="Facebook de Angel Special Tequila">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon-btn js-hover-target" aria-label="TikTok de Angel Special Tequila">
+              <!-- TikTok SVG Icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Separador Final Legal -->
+      <div class="footer-bottom-separator">
+        <div class="footer-logo-mark">✦ ANGEL SPECIAL ✦</div>
+        <p class="legal-notice">
+          PROHIBIDA SU VENTA A MENORES DE EDAD. BEBER CON MODERACIÓN.
+        </p>
+        <p class="copyright">
+          © 2026 Angel Special Tequila. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ----------------------------------------------------
+       VANILLA JAVASCRIPT LAYER
+       ---------------------------------------------------- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      // [ 1 ] ANIMACIÓN DE ENTRADA HERO (Word reveal & Slogans)
+      const heroSection = document.getElementById("hero");
+      setTimeout(() => {
+        heroSection.classList.add("ready-to-animate");
+      }, 100);
+
+      // [ 2 ] EFECTO SCROLL EN NAV (Transparente -> Sólido)
+      const navHeader = document.getElementById("js-header-nav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 80) {
+          navHeader.classList.add("scrolled");
+        } else {
+          navHeader.classList.remove("scrolled");
+        }
+      });
+
+      // [ 3 ] MENÚ HAMBURGUESA MOBILE
+      const menuToggle = document.getElementById("js-menu-toggle");
+      const mobileDrawer = document.getElementById("js-mobile-drawer");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      menuToggle.addEventListener("click", () => {
+        const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", !expanded);
+        menuToggle.classList.toggle("active");
+        mobileDrawer.classList.toggle("active");
+
+        // Bloquear scroll del body al abrir el drawer
+        document.body.style.overflow = !expanded ? "hidden" : "";
+      });
+
+      // Cerrar menú al hacer click en links
+      mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.classList.remove("active");
+          mobileDrawer.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+      });
+
+      // [ 4 ] CURSOR PREMIUM PERSONALIZADO (Desktop)
+      const cursor = document.getElementById("js-custom-cursor");
+      const cursorFollower = document.getElementById("js-custom-cursor-follower");
+      const hoverTargets = document.querySelectorAll(".js-hover-target");
+      const hoverCobaltTargets = document.querySelectorAll(".js-hover-cobalt");
+
+      let cursorX = 0, cursorY = 0;
+      let followerX = 0, followerY = 0;
+
+      // Trackear movimiento de mouse
+      document.addEventListener("mousemove", (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+      });
+
+      // Suavizado del follower mediante requestAnimationFrame (Lerp)
+      function updateFollower() {
+        // Linear Interpolation (Lerp) para efecto orgánico suave
+        followerX += (cursorX - followerX) * 0.12;
+        followerY += (cursorY - followerY) * 0.12;
+
+        cursorFollower.style.left = `${followerX}px`;
+        cursorFollower.style.top = `${followerY}px`;
+
+        requestAnimationFrame(updateFollower);
+      }
+      requestAnimationFrame(updateFollower);
+
+      // Eventos Hover para cambiar escala del cursor
+      hoverTargets.forEach(target => {
+        target.addEventListener("mouseenter", () => {
+          document.body.classList.add("hover-link");
+        });
+        target.addEventListener("mouseleave", () => {
+          document.body.classList.remove("hover-link");
+        });
+      });
+
+      hoverCobaltTargets.forEach(target => {
+        target.addEventListener("mouseenter", () => {
+          document.body.classList.add("hover-cobalt");
+        });
+        target.addEventListener("mouseleave", () => {
+          document.body.classList.remove("hover-cobalt");
+        });
+      });
+
+      // [ 5 ] EFECTO PARALLAX INTERACTIVO EN HERO (Desktop)
+      const parallaxContainer = document.getElementById("js-parallax-container");
+      const parallaxFrame = document.getElementById("js-parallax-frame");
+      const parallaxImage = parallaxFrame ? parallaxFrame.querySelector(".hero-image") : null;
+
+      if (window.innerWidth > 1024 && parallaxContainer) {
+        parallaxContainer.addEventListener("mousemove", (e) => {
+          const rect = parallaxContainer.getBoundingClientRect();
+          // Obtener coordenadas de -1 a 1 relativas al centro del contenedor
+          const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+          const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+
+          // Rotación sutil y desplazamiento
+          parallaxFrame.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateZ(10px)`;
+          if (parallaxImage) {
+            parallaxImage.style.transform = `scale(1.08) translate(${-x * 8}px, ${-y * 8}px)`;
+          }
+        });
+
+        parallaxContainer.addEventListener("mouseleave", () => {
+          parallaxFrame.style.transform = `rotateY(0deg) rotateX(0deg) translateZ(0px)`;
+          if (parallaxImage) {
+            parallaxImage.style.transform = `scale(1) translate(0px, 0px)`;
+          }
+        });
+      }
+
+      // [ 6 ] INTERSECTION OBSERVER PARA REVELAR ELEMENTOS AL SCROLL
+      const revealElements = document.querySelectorAll(".reveal");
+
+      const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            // Dejar de observar una vez activado para mejorar rendimiento
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const revealObserver = new IntersectionObserver(revealCallback, {
+        root: null,
+        threshold: 0.15, // Gatilla al visualizar 15% del elemento
+        rootMargin: "0px 0px -50px 0px" // Margen inferior de disparo
+      });
+
+      revealElements.forEach(element => {
+        revealObserver.observe(element);
+      });
+
+      // [ 7 ] VIDEO SHOWCASE — ANIMACIÓN DE ENTRADA/SALIDA AL SCROLL
+      const videoShowcase = document.getElementById("js-video-showcase");
+      const showcaseVideo = document.getElementById("js-showcase-video");
+      const videoLabel = document.getElementById("js-video-label");
+
+      if (videoShowcase && showcaseVideo) {
+        const videoObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Sección en pantalla → aparecer + reproducir
+              videoShowcase.classList.add("in-view");
+              videoShowcase.classList.remove("out-of-view");
+              showcaseVideo.play().catch(() => { }); // Silenciar error de autoplay si el navegador bloquea
+              if (videoLabel) videoLabel.classList.add("visible");
+            } else {
+              // Sección fuera de pantalla → desaparecer + pausar
+              videoShowcase.classList.remove("in-view");
+              videoShowcase.classList.add("out-of-view");
+              showcaseVideo.pause();
+              if (videoLabel) videoLabel.classList.remove("visible");
+            }
+          });
+        }, {
+          root: null,
+          threshold: 0.15  // Aparece cuando el 15% de la sección es visible
+        });
+
+        videoObserver.observe(videoShowcase);
+      }
+
+    });
+  </script>
+</body>
+
+</html>
