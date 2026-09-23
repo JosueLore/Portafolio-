@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
     rel="stylesheet">
 
   <style>
@@ -49,7 +49,7 @@
       /* Detalle cálido — tierra roja de Arandas */
 
       /* Tipografía */
-      --font-display: 'Cormorant Garamond', serif;
+      --font-display: 'Cinzel', serif;
       --font-sans: 'Montserrat', sans-serif;
 
       /* Animaciones y Transiciones */
@@ -759,33 +759,156 @@
     }
 
     /* ----------------------------------------------------
-       [ 3 ] STATEMENT / CITA DE MARCA
+       [ 3 ] STATEMENT / CITA DE MARCA & BOTELLA 2
        ---------------------------------------------------- */
     .statement-section {
       background-color: var(--color-ivory);
-      text-align: center;
       position: relative;
       z-index: 10;
+      padding: 90px 0;
     }
 
-    .statement-content {
-      max-width: 900px;
-      margin: 0 auto;
+    .statement-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .statement-text-col {
+      text-align: center;
+      padding: 10px;
     }
 
     .statement-quote {
       font-family: var(--font-display);
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--color-dark);
       line-height: 1.35;
-      margin: 40px 0;
+      margin: 35px 0;
+      letter-spacing: 0.02em;
+    }
+
+    .statement-visual-col {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .statement-image-frame {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .statement-border-offset {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--color-gold);
+      z-index: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+
+    .statement-image-frame:hover .statement-border-offset {
+      transform: translate(6px, 6px);
+      border-color: var(--color-cobalt);
+    }
+
+    .statement-corner {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .statement-corner-tl {
+      top: -8px;
+      left: -8px;
+      border-top: 1.5px solid var(--color-gold);
+      border-left: 1.5px solid var(--color-gold);
+    }
+
+    .statement-corner-tr {
+      top: -8px;
+      right: -8px;
+      border-top: 1.5px solid var(--color-gold);
+      border-right: 1.5px solid var(--color-gold);
+    }
+
+    .statement-corner-bl {
+      bottom: -8px;
+      left: -8px;
+      border-bottom: 1.5px solid var(--color-gold);
+      border-left: 1.5px solid var(--color-gold);
+    }
+
+    .statement-corner-br {
+      bottom: -8px;
+      right: -8px;
+      border-bottom: 1.5px solid var(--color-gold);
+      border-right: 1.5px solid var(--color-gold);
+    }
+
+    .statement-image-inner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 843 / 1280;
+      border: 1px solid var(--color-gold);
+      overflow: hidden;
+      z-index: 1;
+      box-shadow:
+        0 14px 40px rgba(44, 31, 20, 0.12),
+        0 4px 14px rgba(44, 31, 20, 0.06);
+    }
+
+    .statement-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .statement-image-frame:hover .statement-img {
+      transform: scale(1.04);
+    }
+
+    @media (max-width: 992px) {
+      .statement-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .statement-image-frame {
+        max-width: 380px;
+      }
+
+      .statement-quote {
+        font-size: 2.5rem;
+      }
     }
 
     @media (max-width: 768px) {
+      .statement-section {
+        padding: 60px 0;
+      }
+
       .statement-quote {
-        font-size: 2.2rem;
+        font-size: 1.9rem;
+        margin: 25px 0;
+      }
+
+      .statement-image-frame {
+        max-width: 310px;
       }
     }
 
@@ -1365,6 +1488,9 @@
       color: var(--color-ivory);
       transition: var(--transition-medium);
       text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 10000;
     }
 
     .social-icon-btn svg {
@@ -1469,189 +1595,6 @@
     /* ----------------------------------------------------
        [ VIDEO SHOWCASE ] SECCIÓN DE VIDEO BOTELLA
        ---------------------------------------------------- */
-    /* Sección contenedora */
-    .video-showcase {
-      padding: 60px 40px;
-      background-color: var(--color-ivory);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Wrapper del frame editorial (controla el tamaño y la posición del marco) */
-    .video-showcase-frame {
-      position: relative;
-      width: 78%;
-      max-width: 1300px;
-    }
-
-    /* Borde dorado offset — igual al estilo de las imágenes del producto */
-    .video-showcase-border-offset {
-      position: absolute;
-      bottom: -18px;
-      right: -18px;
-      width: 100%;
-      height: 100%;
-      border: 1px solid var(--color-gold);
-      z-index: 0;
-      pointer-events: none;
-      transition: var(--transition-smooth);
-    }
-
-    /* Esquinas decorativas en "L" (líneas cuadradas premium) */
-    .video-corner {
-      position: absolute;
-      width: 32px;
-      height: 32px;
-      z-index: 20;
-      pointer-events: none;
-    }
-
-    .video-corner-tl {
-      top: -10px;
-      left: -10px;
-      border-top: 1.5px solid var(--color-gold);
-      border-left: 1.5px solid var(--color-gold);
-    }
-
-    .video-corner-tr {
-      top: -10px;
-      right: -10px;
-      border-top: 1.5px solid var(--color-gold);
-      border-right: 1.5px solid var(--color-gold);
-    }
-
-    .video-corner-bl {
-      bottom: -10px;
-      left: -10px;
-      border-bottom: 1.5px solid var(--color-gold);
-      border-left: 1.5px solid var(--color-gold);
-    }
-
-    .video-corner-br {
-      bottom: -10px;
-      right: -10px;
-      border-bottom: 1.5px solid var(--color-gold);
-      border-right: 1.5px solid var(--color-gold);
-    }
-
-    /* Contenedor del video: rectangular con borde dorado */
-    .video-showcase-inner {
-      position: relative;
-      width: 100%;
-      height: 82vh;
-      min-height: 520px;
-      max-height: 1000px;
-      border-radius: 0;
-      border: 1px solid var(--color-gold);
-      overflow: hidden;
-      z-index: 1;
-      box-shadow:
-        0 8px 40px 8px rgba(0, 0, 0, 0.15),
-        0 20px 60px 5px rgba(0, 0, 0, 0.10);
-    }
-
-    /* El overlay desactivado */
-    .video-showcase-overlay {
-      display: none;
-    }
-
-    /* El video: ocupa todo el marco */
-    .video-showcase-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      z-index: 1;
-      border-radius: 0;
-    }
-
-    /* Etiqueta superpuesta */
-    .video-showcase-label {
-      position: absolute;
-      bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      text-align: center;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
-        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
-      transform: translateX(-50%) translateY(30px);
-    }
-
-    .video-showcase-label.visible {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .video-showcase-label .label-eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.4em;
-      color: var(--color-gold);
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .video-showcase-label .label-title {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--color-ivory);
-      line-height: 1.2;
-      white-space: nowrap;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
-    }
-
-    @media (max-width: 768px) {
-      .video-showcase {
-        padding: 50px 20px;
-      }
-
-      .video-showcase-frame {
-        width: 94%;
-      }
-
-      .video-showcase-inner {
-        height: 72vh;
-        min-height: 400px;
-      }
-
-      .video-showcase-video {
-        border-radius: 0;
-      }
-
-      .video-showcase-label .label-title {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* Animación de entrada/salida al scroll */
-    .video-showcase {
-      opacity: 0;
-      transform: scale(0.97);
-      transition:
-        opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .video-showcase.in-view {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .video-showcase.out-of-view {
-      opacity: 0;
-      transform: scale(0.97);
-    }
   </style>
 </head>
 
@@ -1754,7 +1697,7 @@
                   <text font-family="'Montserrat', sans-serif" font-size="7.5" font-weight="600"
                     fill="var(--color-gold-lt)" letter-spacing="2">
                     <textPath href="#seal-text-path" startOffset="0%">
-                      • ANGEL SPECIAL TEQUILA • 100% AGAVE AZUL •
+                      •ANGEL SPECIAL TEQUILA•100% AGAVE AZUL•
                     </textPath>
                   </text>
                 </svg>
@@ -1777,52 +1720,43 @@
       </div>
     </section>
 
-    <!-- [ VIDEO ] BOTELLA CAL — SHOWCASE -->
-    <section class="video-showcase" id="js-video-showcase">
-      <!-- Frame editorial: borde dorado + esquinas decorativas -->
-      <div class="video-showcase-frame">
-
-        <!-- Borde dorado offset (igual que en las imágenes del producto) -->
-        <div class="video-showcase-border-offset"></div>
-
-        <!-- Esquinas decorativas en "L" -->
-        <div class="video-corner video-corner-tl"></div>
-        <div class="video-corner video-corner-tr"></div>
-        <div class="video-corner video-corner-bl"></div>
-        <div class="video-corner video-corner-br"></div>
-
-        <!-- Contenedor con borde dorado + video -->
-        <div class="video-showcase-inner">
-          <div class="video-showcase-overlay"></div>
-
-          <video class="video-showcase-video" id="js-showcase-video" src="VIDEOS/Botella Cal(1).mp4" autoplay muted loop
-            playsinline preload="auto" aria-label="Video de la botella Angel Special Tequila"></video>
-
-          <!-- Etiqueta superpuesta -->
-          <div class="video-showcase-label" id="js-video-label">
-            <span class="label-eyebrow">Pureza en cada gota</span>
-            <span class="label-title">Angel Special Tequila Blanco</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- [ 3 ] STATEMENT / CITA DE MARCA -->
-    <section class="statement-section">
+    <!-- [ 3 ] STATEMENT / CITA DE MARCA & BOTELLA 2 -->
+    <section class="statement-section" id="statement">
       <div class="container">
-        <div class="statement-content reveal">
-          <div class="ornament-separator">
-            <span class="ornament-diamond">✦</span>
+        <div class="statement-layout">
+          <!-- Columna Izquierda: Eslogan -->
+          <div class="statement-text-col reveal">
+            <div class="ornament-separator">
+              <span class="ornament-diamond">✦</span>
+            </div>
+
+            <blockquote class="statement-quote">
+              "CON TRAGOS Y AMORES, LOS MOMENTOS SON MEJORES"
+            </blockquote>
+
+            <div class="ornament-separator">
+              <span class="ornament-diamond">✦</span>
+            </div>
           </div>
 
-          <blockquote class="statement-quote">
-            "Cada botella nace de la tierra roja de Arandas y del trabajo de manos que conocen el agave desde sus
-            raíces."
-          </blockquote>
+          <!-- Columna Derecha: Imagen Botella 2 -->
+          <div class="statement-visual-col reveal reveal-delay-1">
+            <div class="statement-image-frame">
+              <!-- Borde offset dorado -->
+              <div class="statement-border-offset"></div>
 
-          <div class="ornament-separator">
-            <span class="ornament-diamond">✦</span>
+              <!-- Esquinas decorativas en "L" -->
+              <div class="statement-corner statement-corner-tl"></div>
+              <div class="statement-corner statement-corner-tr"></div>
+              <div class="statement-corner statement-corner-bl"></div>
+              <div class="statement-corner statement-corner-br"></div>
+
+              <!-- Contenedor con borde dorado + imagen -->
+              <div class="statement-image-inner">
+                <img src="IMAGES/Botella 2.jpeg" alt="Angel Special Tequila Blanco - Botella" class="statement-img"
+                  loading="lazy">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1838,10 +1772,10 @@
             <h2 class="product-title">Angel Special Blanco</h2>
 
             <p class="product-desc">
-              Cristalino y puro como el cielo de los altos. En nariz, notas frescas de agave cocido con un toque herbal
-              y cítrico. En boca, su entrada es suave con una textura sedosa que revela el dulzor natural del agave. El
-              final es largo, limpio, con reminiscencias a tierra húmeda y pimienta blanca. Un tequila blanco diseñado
-              para apreciarse solo o como base perfecta de cocktails de autor.
+              En Angel Special elaboramos un tequila auténtico y de alta calidad, inspirado en la tradición de Los Altos
+              de Jalisco y en la pasión por crear momentos especiales e inolvidables. Nuestro compromiso es ofrecer una
+              experiencia única en cada sorbo, conservando la pureza del agave y el equilibrio perfecto entre carácter y
+              elegancia.
             </p>
 
             <!-- Grid de Características -->
@@ -1856,27 +1790,6 @@
                 <p>Agave Tequilana Weber Variedad Azul seleccionado a mano.</p>
               </div>
 
-              <!-- Card 2 -->
-              <div class="spec-card reveal reveal-delay-2">
-                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-                <h3>38% Alc. Vol.</h3>
-                <p>El balance perfecto para apreciar su pureza y carácter floral.</p>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="spec-card reveal reveal-delay-1">
-                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                  </path>
-                </svg>
-                <h3>750 ml</h3>
-                <p>Presentación icónica elegante con vidrio soplado artesanal.</p>
-              </div>
 
               <!-- Card 4 -->
               <div class="spec-card reveal reveal-delay-2">
@@ -1923,30 +1836,25 @@
 
           <!-- Text right -->
           <div class="history-info reveal reveal-delay-1">
-            <span class="eyebrow" id="origen">El Alma del Terruño</span>
+            <span class="eyebrow" id="origen">Historia</span>
             <h2 class="history-title">Nacidos en Los Altos</h2>
             <h3 class="history-subtitle">Arandas, Jalisco — Capital Mundial del Tequila</h3>
 
             <div class="history-text">
               <p>
-                Angel Special Tequila no se fabrica, se cultiva. Nuestra historia comienza en los majestuosos campos de
-                Arandas, Jalisco, una tierra caracterizada por su suelo arcilloso rojo, rico en hierro y nutrientes. Es
-                aquí, a más de 2,000 metros de altitud, donde el agave azul crece lentamente durante más de siete años,
-                absorbiendo la esencia del sol de Los Altos y el agua pura de lluvia.
+                En el año 2025 nace Angel Special, un tequila inspirado en aquellos que buscan vivir momentos especiales
+                e inolvidables. Su nombre no es una casualidad, sino un tributo a la pureza, la dedicación y la pasión
+                con la que ha sido creado.
+                Cultivado en los fértiles campos de Los Altos de Jalisco, cuna de los mejores agaves. Cada sorbo es una
+                experiencia: un tequila elegante, de gran calidad, pensado para paladares exigentes que valoran la
+                autenticidad y la tradición. Ya sea solo, en cócteles o acompañado de buenos amigos, Ángel Special es el
+                compañero ideal para brindar por la vida y sus momentos más memorables.
+                Ángel Special - Con Tragos y amores los momentos son mejores.
               </p>
-              <p>
-                Cada una de nuestras botellas es el resultado de un compromiso inquebrantable con la tradición. Nuestros
-                jimadores cosechan únicamente piñas en su punto exacto de madurez. Posteriormente, son cocidas en hornos
-                tradicionales de mampostería y destiladas de manera pausada en alambiques de cobre, asegurando la
-                riqueza aromática que define a nuestra marca.
-              </p>
+
             </div>
 
-            <!-- Bloque Estadístico -->
-            <div class="stat-callout reveal reveal-delay-2">
-              <div class="stat-number">+200</div>
-              <div class="stat-label">Años de tradición tequilera en Los Altos de Jalisco</div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -2036,42 +1944,6 @@
               </svg>
               <span class="contact-text">Arandas, Jalisco, México</span>
             </div>
-
-            <!-- Teléfono -->
-            <div class="contact-item">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                </path>
-              </svg>
-              <span class="contact-text"><a href="tel:+520000000000" class="js-hover-target">+52 (000)
-                  000-0000</a></span>
-            </div>
-
-            <!-- Email -->
-            <div class="contact-item">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span class="contact-text"><a href="mailto:contacto@angelspecial.com.mx"
-                  class="js-hover-target">contacto@angelspecial.com.mx</a></span>
-            </div>
-
-            <!-- Web -->
-            <div class="contact-item">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                </path>
-              </svg>
-              <span class="contact-text"><a href="http://www.angelspecial.com.mx" target="_blank"
-                  class="js-hover-target">www.angelspecial.com.mx</a></span>
-            </div>
           </div>
         </div>
 
@@ -2079,30 +1951,90 @@
         <div class="footer-col">
           <h3>Síguenos</h3>
           <p>Únete a nuestro lifestyle premium de tragos y amores.</p>
-          <div class="social-links">
-            <a href="#" class="social-icon-btn js-hover-target" aria-label="Instagram de Angel Special Tequila">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="#" class="social-icon-btn js-hover-target" aria-label="Facebook de Angel Special Tequila">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="social-icon-btn js-hover-target" aria-label="TikTok de Angel Special Tequila">
-              <!-- TikTok SVG Icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-              </svg>
-            </a>
+          <div style="margin-top: 30px;">
+
+            <!-- Estilos del botón flotante Instagram -->
+            <style>
+              @keyframes ig-pulse {
+                0% {
+                  box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7), 0 0 0 0 rgba(197, 160, 89, 0.4);
+                }
+
+                50% {
+                  box-shadow: 0 0 0 12px rgba(197, 160, 89, 0), 0 0 0 24px rgba(197, 160, 89, 0);
+                }
+
+                100% {
+                  box-shadow: 0 0 0 0 rgba(197, 160, 89, 0), 0 0 0 0 rgba(197, 160, 89, 0);
+                }
+              }
+
+              @keyframes ig-float {
+
+                0%,
+                100% {
+                  transform: translateY(0px);
+                }
+
+                50% {
+                  transform: translateY(-5px);
+                }
+              }
+
+              .ig-float-btn-wrap {
+                display: inline-block;
+                position: relative;
+                z-index: 100000;
+              }
+
+              .ig-float-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #C5A059 0%, #E8D5A3 50%, #C5A059 100%);
+                color: #2C1F14;
+                text-decoration: none;
+                cursor: pointer;
+                position: relative;
+                z-index: 100000;
+                animation: ig-pulse 2s ease-out infinite, ig-float 3s ease-in-out infinite;
+                transition: transform 0.3s ease, background 0.3s ease;
+                box-shadow: 0 6px 20px rgba(197, 160, 89, 0.45);
+              }
+
+              .ig-float-btn:hover {
+                background: linear-gradient(135deg, #E1306C 0%, #F77737 50%, #FCAF45 100%);
+                color: #fff;
+                animation: ig-float 3s ease-in-out infinite;
+                box-shadow: 0 8px 28px rgba(225, 48, 108, 0.5);
+              }
+
+              .ig-float-btn svg {
+                width: 24px;
+                height: 24px;
+                pointer-events: none;
+              }
+            </style>
+
+            <div class="ig-float-btn-wrap">
+              <a href="https://www.instagram.com/angelspecialtequila?stkn=MXE2bHl0MGt2cXJhaw%3D%3D&utm_source=qr"
+                target="_blank" rel="noopener noreferrer" class="ig-float-btn" aria-label="Síguenos en Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+
           </div>
         </div>
+
+
       </div>
 
       <!-- Separador Final Legal -->
@@ -2216,35 +2148,7 @@
         revealObserver.observe(element);
       });
 
-      // [ 7 ] VIDEO SHOWCASE — ANIMACIÓN DE ENTRADA/SALIDA AL SCROLL
-      const videoShowcase = document.getElementById("js-video-showcase");
-      const showcaseVideo = document.getElementById("js-showcase-video");
-      const videoLabel = document.getElementById("js-video-label");
 
-      if (videoShowcase && showcaseVideo) {
-        const videoObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Sección en pantalla → aparecer + reproducir
-              videoShowcase.classList.add("in-view");
-              videoShowcase.classList.remove("out-of-view");
-              showcaseVideo.play().catch(() => { }); // Silenciar error de autoplay si el navegador bloquea
-              if (videoLabel) videoLabel.classList.add("visible");
-            } else {
-              // Sección fuera de pantalla → desaparecer + pausar
-              videoShowcase.classList.remove("in-view");
-              videoShowcase.classList.add("out-of-view");
-              showcaseVideo.pause();
-              if (videoLabel) videoLabel.classList.remove("visible");
-            }
-          });
-        }, {
-          root: null,
-          threshold: 0.15  // Aparece cuando el 15% de la sección es visible
-        });
-
-        videoObserver.observe(videoShowcase);
-      }
 
     });
   </script>
@@ -2262,6 +2166,7 @@
       align-items: flex-end;
       gap: 14px;
       font-family: 'Montserrat', sans-serif;
+      pointer-events: none;
     }
 
     /* ---- Panel desplegable ---- */
@@ -2275,13 +2180,15 @@
       overflow: hidden;
       transform: translateY(24px) scale(0.94);
       opacity: 0;
+      visibility: hidden;
       pointer-events: none;
-      transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1), opacity 0.28s ease;
+      transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1), opacity 0.28s ease, visibility 0.28s;
     }
 
     #contact-panel.open {
       transform: translateY(0) scale(1);
       opacity: 1;
+      visibility: visible;
       pointer-events: all;
     }
 
@@ -2464,6 +2371,7 @@
       background: linear-gradient(135deg, #2C1F14 0%, #4a3420 100%);
       border: 2.5px solid #C5A059;
       cursor: pointer;
+      pointer-events: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2544,6 +2452,7 @@
       border-radius: 50%;
       border: 2px solid rgba(197, 160, 89, 0.5);
       animation: as-pulse 2.6s ease-out infinite;
+      pointer-events: none;
     }
 
     #contact-fab.active::after {
